@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트 위임</title>
+    <script src="http://code.jquery.com/jquery-1.12.4.js"></script>
+    <style>
+        #one {width:100px;height:100px;line-height:100px;text-align:center;background:#333;color:#fff;margin:100px auto;}
+    </style>
+</head>
+<body>
+
+<button class="bt1">one</button>
+<button class="bt2">two</button>
+<button class="bt3">Close</button>
+<button class="bt4">Open</button>
+</body>
+<script>
+$(function(){
+
+
+
+let divPop=$("<div>").appendTo("body").attr({class:"on one two there",id:"one"})
+let id=divPop.attr("class").split(" ");
+$(".bt1").on("click mouseenter", ()=> divPop.html(id[1]) );
+$(".bt2").on("click mouseenter", ()=> divPop.html(id[2]) );
+$(".bt3").on("click", ()=> $("#" + id[1]).fadeOut() );
+$(".bt4").on("click", ()=> $("#" + id[1]).fadeIn() );
+
+$(window).on("click", event => {
+let tg=event.target;
+let soso=$(".bt4");
+console.log(tg, soso, tg.tagName); 
+if(tg.tagName != "BUTTON" && tg.tagName != "DIV") $("#" + id[1]).fadeOut()
+//tg.className == "bt4" ? $("#" + id[1]).fadeIn() : $("#" + id[1]).fadeOut()
+
+} )
+
+
+});
+</script>
+</html>
