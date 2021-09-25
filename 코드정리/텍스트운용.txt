@@ -1,0 +1,44 @@
+            //Main
+            var letters = ['Y', 'O', 'U', 'G', 'O', 'W', 'O', 'R', 'L', 'D'];
+            setBase();
+            var ctr = 0;
+
+            function helloWorld() {
+                var nthElem = selectElem();
+                var randNum = randomNum();
+                // var ctr = randomNum();
+
+                $('.demo__div:nth-child(' + nthElem + ') .ltr').html(String.fromCharCode(randNum));
+                $('.demo__div:nth-child(' + nthElem + ') .ltr').attr('data-num', ctr);
+                ctr++;
+
+                $('.demo__div .ltr').each(function() {
+                    var num = parseInt($(this).attr('data-num'));
+                    var based = parseInt($(this).attr('data-based'));
+
+                    if (num > based) {
+                        index = $('.ltr').index(this);
+                        $(this).html(letters[index]);
+                    }
+                });
+            }
+
+            setTimeout(function() {
+                setInterval(helloWorld, 20)
+            }, 500);
+
+            function selectElem() {
+                var elemLength = $('.ltr').length;
+                return Math.round(Math.random() * elemLength + 1);
+            }
+
+            function randomNum() {
+                return Math.round(Math.random() * 120) + 34;
+            }
+
+            function setBase() {
+                $('.ltr').each(function() {
+                    based = Math.round(Math.random() * 100);
+                    $(this).attr('data-based', based);
+                });
+            } // Main end 

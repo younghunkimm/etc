@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JavaScript</title>
+    <script type="text/javascript">
+        //1. 객체를 생성한 후 속성(변수)와 메서드(함수)를 축약형으로 표기하는 방법
+        var book = {};
+        
+        book.name = "javascript";
+        book.page = 760;
+        book.company = "Gilbert";
+        
+        console.log(book.name);
+        
+        //2. 객체를 생성한 후 속성(변수)와 메서드(함수)를 객체 생성자로 표기하는 방법
+        //객체 생성자 표기법
+        //var book2 = new Array();
+        var book2 = new Object();
+       
+        book2.name = "jquery"
+        book2.page = 500;
+        book2.company = "Gilbert";
+        
+        console.log(book2.name);
+        
+        //3. 속성과 메서드를 사전에 정의하여 객체를 생성하는 방법
+        var book3 = {
+            name: "html",
+            page: 400,
+            company: "webs"
+        }
+        
+        console.log(book3.name);
+        //in 연산자로 프로터티가 있는지 확인하기
+        console.log("page" in book3);
+        console.log("house" in book3);
+        
+        //객체 리터럴 예제(원을 표현하는 객체)
+        var circle = {
+            center: {x:1.0, y:2.0},           //원의 중점을 표현하는 객체
+            radius: 2.5                       //원의 반지름
+        }
+        console.log(circle.center.x)
+        
+        //객체 리터럴 예제(회원 정보를 표현하는 객체)
+        var person = {
+            name: "손지원",
+            age: 26,
+            sex: "여자",
+            married: false
+        }
+        console.log(person.name, person.age, person.sex)
+        
+        //생성자를 생성하는 방법
+        //함수를 이용하면 여러개의 객체를 생성할 수 있습니다.
+        //이때는 객체의 이름대신 this 키워드를 사용합니다.
+        function book4(name,page,company){
+            this.name = name;
+            this.page = page;
+            this.company = company;
+        }
+        var book4 = new book4("HTML5",555,"Gilberyt");
+        
+        console.log(book4.name);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

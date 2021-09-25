@@ -1,0 +1,11 @@
+JAVASCRIPT 팝업 전체화면 열기
+LOMO Prunus serrulata 2017. 8. 25. 17:07
+IE에서는 window.open의 fullscreen 옵션이 잘 적용되는데 크롬에서는 제대로 작동하지 않아 아래와 같이 바꿔봤습니다.
+
+
+
+window.open('URL','title','height=' + screen.height + ',width=' + screen.width + 'fullscreen=yes');
+
+
+
+출처: https://csslab.tistory.com/44 [learning DEV :D ]

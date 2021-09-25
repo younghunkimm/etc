@@ -1,0 +1,51 @@
+jQuery에서는 같은 이름의 객체들(예를 들면 li 같은 태그들)이라면 이벤트 정의시 모두 적용되지만 자바스크립트에서는 배열로 하나하나 처리해 주어야 한다. 일반적으로 생각할 때 이벤트 핸들러를 단순 반복시키면 될 거 같지만 생각대로 되지 않는다.
+
+
+var li = document.querySelectorAll('li');
+
+for(var i=0; i<li.length; i++){
+      li[i].onclick = function(){
+            alert(i);
+      };
+}
+        
+
+
+반복분으로는 속성 이외에 함수나 메소드로는 적용이 안된다. 다음은 클로저를 응용한 예제이다.
+
+var li = document.querySelectorAll('li');
+
+function li_click(idx){
+    li[idx].onclick = function(){
+        alert(idx);
+    };
+}
+
+for(var i=0; i<li.length; i++){
+  li_click(i);  
+}
+
+
+응용 예제
+
+var li = document.querySelectorAll('li');
+
+function li_click(idx){
+    li[idx].onclick = function(){
+        console.log(idx);
+        if(li[idx].getAttribute('class')!='active'){
+            for(var i=0;i<li.length;i++){
+                li[i].removeAttribute('class');
+            }
+            li[idx].setAttribute('class', 'active');    
+        } else{
+            li[idx].removeAttribute('class');
+        }
+        
+    };
+}
+
+for(var i=0; i<li.length; i++){
+    li_click(i);
+}
+    

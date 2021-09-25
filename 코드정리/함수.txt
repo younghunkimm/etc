@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JavaScript</title>
+    <script type="text/javascript">
+        //선언적 함수
+        function func1(){
+            document.write("function이 실행되었습니다.<br><br>");
+        }
+        func1();
+        
+        //익명 함수
+        var func2 = function(){
+            document.write("function2가 실행되었습니다.<br><br>");
+        }
+        func2();
+        
+        //매개변수가 있는 함수
+        function func3(name){
+            document.write(name);
+        }
+        func3("function3가 실행되었습니다.<br><br>");
+              
+        //리턴값이 있는 함수
+        function func4(){
+            var str = "function4가 실행되었습니다.<br><br>";
+            return str;
+        }
+        var value = func4();
+        document.write(value);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

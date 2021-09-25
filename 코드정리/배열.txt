@@ -1,0 +1,38 @@
+var text = ["Hola", "Hallo", "Merhaba"];
+var counter = 0;
+var elem = $("#greeting");
+
+
+setInterval(change, 3000);
+
+
+function change() {
+       elem.fadeOut(400, function(){
+           elem.html(text[counter]);
+           counter++;
+           if(counter >= text.length) { counter = 0; }
+           elem.fadeIn();
+       });
+}
+
+
+var tr=document.getElementsByTagName("tr");
+
+
+for(var tr_i=0; tr_i<tr.length;tr_i++){
+    var td = tr[tr_i].getElementsByTagName("td");
+
+    for(var i=0; i<td.length; i++){
+
+  	 (function(){
+     	 td[i].index=i;
+   	 td[i].onmouseover = function(){
+     	 alert(this.index); // 내 자신의 index 번호를 뽑고 싶습니다 ㅜㅜ
+   	 }
+	 })();
+    }
+}
+
+
+
+console.log(arry[i].index)
