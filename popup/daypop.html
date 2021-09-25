@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>오늘 하루 열지않기 팝업</title>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script src="js/jquery.cookie.js"></script>
+    <style>
+        *{box-sizing:border-box;}
+        #popup {display:none;position:absolute;top:200px;left:100px;background:#ff0;width:400px;height:500px;}
+        #popup>form {background:#333;color:#fff;text-align:right;position:absolute;width:100%;bottom:0;padding:5px;}
+        #popup>form .close {display:inline-block;width:50px;height:20px;background:#f00;text-align:center;line-height:20px;}
+    </style>
+</head>
+<body>
+   
+   <div id="popup">
+      팝업창
+       <form>
+           <input type="checkbox" id="popup-check"> 
+           <label for="popup-check">오늘 하루 열지않기</label>
+           <span class="close">닫기</span>
+       </form>
+   </div>
+   
+    <div id="del-cookie">쿠키를 삭제함</div>
+    <script>
+        $(function(){
+            //$("#popup").show();
+            //$.cookie("day-Coo", "no", {path:"/"});
+            if($.cookie('day-Coo') == undefined){
+            //쿠키가 없는 경우 day-Coo 쿠키를 추가
+                $.cookie('day-Coo', 'N', {path: '/' });
+            }
+            console.log($.cookie("day-Coo"));
+            //위는 테스트
+            
+            
+            if($.cookie("day-Coo") == "N"){
+                $("#popup").show();
+            }
+            $(".close").on("click",function(){
+                if($("#popup-check").is(":checked")){
+                    //var date = new Date();
+                    //date.setTime(date.getTime() + (120 * 1000));
+                    $.cookie("day-Coo", "Y", {expires:1, path:"/"});
+                }
+                $("#popup").hide();
+                return false;
+            });
+            $("#del-cookie").on("click",function(){
+                $.cookie("day-Coo", "N", {path:"/"});
+            });
+        });
+    </script>
+</body>
+</html>

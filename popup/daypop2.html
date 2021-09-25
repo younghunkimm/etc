@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>오늘 하루 열지않기 팝업</title>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script src="js/jquery.cookie.js"></script>
+    <style>
+        *{box-sizing:border-box;}
+        #popup {display:none;position:absolute;top:200px;left:100px;background:#ff0;width:400px;height:500px;}
+        #popup>form {background:#333;color:#fff;text-align:right;position:absolute;width:100%;bottom:0;padding:5px;}
+        #popup>form .close {display:inline-block;width:50px;height:20px;background:#f00;text-align:center;line-height:20px;}
+    </style>
+</head>
+<body>
+   
+   <div id="popup">
+      팝업창
+       <form>
+           <input type="checkbox" id="popup-check"> 
+           <label for="popup-check">오늘 하루 열지않기</label>
+           <span class="close">닫기</span>
+       </form>
+   </div>
+<div>
+저장값 : <input type="text" id="save" /> <input type="button" value="쿠키저장" id="saveButton" /><br/> 쿠키값호출 : <input type="text" id="load" /> <input type="button" value="쿠키불러오기" id="loadButton" /> <input type="button" value="쿠키삭제" id="deleteButton" />
+
+출처: https://roqkffhwk.tistory.com/149 [야근싫어하는 개발자]
+  </div>
+    <div id="del-cookie">쿠키를 삭제함</div>
+    <script>
+        $(function(){
+            //$("#popup").show();
+            //$.cookie("vv_coo", "no", {path:"/"});
+            if($.cookie('vv_coo') == "Y"){
+
+                 $("#popup").show();
+            }
+
+            $(".close").on("click",function(){
+                if($("#popup-check").is(":checked")){
+                    //var date = new Date();
+                    //date.setTime(date.getTime() + (120 * 1000));
+                    $.cookie("vv_coo", "Y", {expires:1});
+                }
+                $("#popup").hide();
+                return false;
+            });
+            $("#del-cookie").on("click",function(){
+                $.removeCookie("vv_coo");
+				console.log(typeof($.cookie('vv_coo')));
+            });
+        });
+
+		$(function(){
+			//저장버튼 클릭
+			$("#saveButton").click(function(){ 
+				//입력값 
+				var cookie_value = $("#save").val(); 
+				//'cookie'라는 key값으로 입력값을 저장한다. 
+				//1번째 parameter = 쿠키명 
+				// 2번째 parameter = 저장하고자 하는 쿠키값
+				$.cookie('cookie', cookie_value); }); 
+				//불러오기버튼 클릭
+				$("#loadButton").click(function(){ 
+					//저장버튼클릭시 'cookie' key값을 불러온다. 
+					var cookie_value = $.cookie('cookie'); 
+					// load라는 id text태그에 cookie_value변수에 들어있는 값을 담는다.
+					$("#load").val(cookie_value); }) 
+					//삭제버튼 클릭
+					$("#deleteButton").click(function(){
+						//'cookie' 라는 key값의 쿠키를 삭제한다 
+						$.removeCookie("cookie"); })
+				})
+    </script>
+</body>
+</html>
