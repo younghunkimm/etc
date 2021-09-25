@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html> 
+<html> 
+<head> 
+<style> 
+.testEle {
+  width:100px;
+  height:100px;
+  background: #f80;
+  text-align:center;
+  color:#fff;
+  display:table-cell;
+  vertical-align:middle;
+  cursor:pointer;
+}
+
+#testEle2.testEle {
+  height:24px;
+  background:#333;
+}
+</style> 
+<script src="http://code.jquery.com/jquery-1.12.4.js"></script> 
+</head> 
+<body> <div class="testEle" id="testEle">
+  Click Num: <span id="testspan">0</span>
+</div>
+<div class="testEle" id="testEle2">Switch!</div>
+
+<script> 
+$(function(){
+var sumtest=0,xplus=0;
+var ddd={
+	dogstop: function() {
+		sumtest++;
+		$('#testspan').text(sumtest);
+		},
+	dogplay: function() {
+		sumtest--;
+		$('#testspan').text(sumtest);
+		},
+	color:["#333","#666","#999","#f00","#ff0","#369"],
+	mbg:["#333","#666","#999","#f00","#ff0","#369"],
+}
+$('#testEle2').on('click', function() {
+
+  	$('#testspan').on(ddd.dogstop());
+	$('#testspan').css("color",ddd.color[xplus]);	
+	
+	console.log(xplus);
+	$(this).css("background",ddd.mbg[xplus]);
+	++xplus;
+
+	if(xplus>5){xplus=0}
+
+});
+});
+</script> 
+</body> 
+</html>

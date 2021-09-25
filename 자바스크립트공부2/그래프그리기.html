@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<canvas width="150" height="150" id="canvas" />
+<script>
+function drawProgressCircle (percent) {
+  let canvas = document.getElementById("canvas");
+  let context = canvas.getContext("2d");
+  let centerX = canvas.width / 2;
+  let centerY = canvas.height / 2;
+  let radius = 70;
+    
+  /* draw the grey circle */ 
+  context.beginPath();
+  context.moveTo(centerX, centerY); 
+  context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+  context.closePath();
+  context.fillStyle = "#ddd";
+  context.fill();
+  context.strokeStyle = "rgba(200, 208, 218, 0.66)";
+  context.stroke();
+  
+  /* draw the green circle based on percentage */
+  let startAngle = 1.5 * Math.PI;
+  let unitValue = (Math.PI - 0.5 * Math.PI) / 25;
+  if (percent >= 0 && percent <= 25) {
+     endAngle = startAngle + (percent * unitValue);
+  } else if (percent > 25 && percent <= 50) {
+     endAngle = startAngle + (percent * unitValue);
+  } else if (percent > 50 && percent <= 75) {
+     endAngle = startAngle + (percent * unitValue);
+  } else if (percent > 75 && percent <= 100) {
+   endAngle = startAngle + (percent * unitValue);
+  }
+    
+  context.beginPath();
+  context.moveTo(centerX, centerY);
+  context.arc(centerX, centerY, radius, startAngle, endAngle, false);
+  context.closePath();
+  context.fillStyle = "#2cb191";
+  context.fill();
+}
+drawProgressCircle(70);
+</script>
+</body>
+</html>

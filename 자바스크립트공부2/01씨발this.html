@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>this염병</title>
+    <style>
+        div {width:100px;height:100px;background:#ddd;}
+    </style>
+</head>
+<body>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    
+    <script>
+        'use strict';
+        const div=document.querySelectorAll("div");
+        
+        let ddd=(i)=> {div[i].addEventListener("click", ()=> div[i].innerHTML="alcls")}
+        for(let i=0;i<div.length;++i){
+               ddd(i);
+            }
+    </script>
+</body>
+</html>

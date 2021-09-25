@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<style>
+* {margin:0;padding:0;}
+.content {height:100vh;background:#ddd;}
+#popup {position:fixed;top:100px;left:100px;width:300px;height:400px;background:#ff0;}
+#popup>span {display:block;width:120px;height:40px;background:#333;color:#fff;text-align:center;line-height:40px;position:absolute;bottom:15px;right:15px;}
+</style>
+</head>
+<body>
+<div class="content">팝업열기</div>
+<div class="content">팝업열기</div>
+<div id="popup">
+	<span>close</span>
+</div>
+<script>
+const POP=document.querySelector("#popup");
+const POPCLOSE=document.querySelector("#popup>span");
+const POPOPEN=document.querySelector(".content");
+
+POPCLOSE.addEventListener("click", ()=> POP.style.display="none");
+POPOPEN.addEventListener("click", ()=> POP.style.display="block");
+</script>
+</body>
+</html>

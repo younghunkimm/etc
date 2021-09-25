@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<title>자바스크립트 엘리먼트 제어</title>
+</head>
+<body>
+
+<nav>
+<ul>
+	<li><a href="#">menu01</a>
+		<div class="sub_menu">sub menu</div>
+	</li>
+	<li><a href="#">menu01</a>
+		<div class="sub_menu">sub menu</div>
+	</li>
+	<li><a href="#">menu01</a>
+		<div class="sub_menu">sub menu</div>
+	</li>
+</ul>
+</nav>
+<script>
+
+//모바일토글메뉴
+const menu=document.querySelectorAll("nav>ul>li");
+const smenu=document.querySelectorAll(".sub_menu");
+const gnb=(i)=>
+menu[i].addEventListener("click" , ()=>smenu[i].classList.toggle("on")
+);
+
+for(i=0;i<menu.length;i++){
+	gnb(i);
+}
+
+//모바일 숨기기 보이기
+
+
+
+
+</script>
+
+
+</body>
+</html>

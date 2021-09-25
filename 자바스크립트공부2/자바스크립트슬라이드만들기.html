@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>자바스크립트 슬라이드만들기</title>
+
+<style>
+	* {margin:0;padding:0;box-sizing:border-box;}
+	ul {list-style:none;}
+	a {text-decoration:none;color:inherit;}
+
+	#visual {width:100%;background:#ddd;overflow:hidden;}
+	#visual>div {width:300%;position:relative;}
+	#visual>div>div {float:left;width:33.333%;height:300px;}
+	#visual>div>div:nth-child(1) {background:#ff0}
+	#visual>div>div:nth-child(2) {background:#f00}
+	#visual>div>div:nth-child(3) {background:#369}
+</style>
+
+
+</head>
+<body>
+<header>logo <span id="mopen">모바일</span></header>
+<section id="visual">
+<div>
+	<div>1</div>
+	<div>2</div>
+	<div>3</div>
+</div>
+</section>
+<footer>
+	ECMA6로 짜보는 슬라이드 ... 나는 마이 아프다.
+</footer>
+<script>
+const sliderA=document.getElementById("visual");
+const sliderM=document.querySelector("#visual>div");
+
+let i=0;
+sliderM.style.transition=0.5+"s";
+sliderZ=()=> {
+sliderM.style.left=-100*i+"%";
+++i;
+if(i>2) i=0;
+}
+setInterval(sliderZ, 3000);
+
+</script>
+</body>
+</html>
+
+
+
+

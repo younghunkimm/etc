@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<script src="http://code.jquery.com/jquery-1.12.4.js"></script>
+<style>
+body {height:300vh;}
+.ddopp {position:absolute;top:200px;right:100px;width:100px;height:100px;background:#369;border-radius:50%;transition:0.5s}
+</style>
+</head>
+<body>
+<div class="ddopp"></div>
+<script>
+$(function(){
+var mb=$(".ddopp");
+
+	$(window).on("scroll", function(){
+		var wt=$(window).scrollTop();
+		mb.css({top:200+wt});
+	});
+});
+</script>
+</body>
+</html>

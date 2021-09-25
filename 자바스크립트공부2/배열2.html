@@ -1,0 +1,24 @@
+﻿<!doctype html>
+<html>
+<head>
+</head>
+<body>
+<ul>
+	<li>1</li>
+	<li>2</li>
+	<li>3</li>
+	<li>4</li>
+</ul>
+<script>
+let myarry=["a","b","c","d"];
+let UL=document.querySelectorAll("ul>li");
+function arry(idx) {
+console.log(myarry[idx])
+UL[idx].addEventListener("click",()=>UL[idx].innerHTML=myarry[idx]);
+}
+for(i=0;i<myarry.length;++i){
+arry(i);
+}
+</script>
+</body>
+</html>

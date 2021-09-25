@@ -1,0 +1,49 @@
+﻿<html>
+<head>
+<title>카운트만들기</title>
+<style>
+.bar {width:10%;height:50px;background:#ddd;}
+#count {transition:1s;}
+#count.on {color:#F00;}
+</style>
+</head>
+<body>
+
+<p id="count">0</p>
+<div class="bar"></div>
+<pre>
+var element = document.getElementById( 'element' );
+
+element.classList.add( 'someclass' );
+element.classList.add( 'someclass1', 'someclass2' );
+element.classList.remove( 'someclass' );
+element.classList.remove( 'someclass1', 'someclass2' );
+element.classList.contains( 'someclass' );
+element.classList.contains( 'someclass1', 'someclass2' );
+element.classList.toggle( 'someclass' );
+</pre>
+<script>
+let i=1;
+let mmm=document.getElementById("count");
+let zzz=document.querySelector(".bar");
+
+function count_99() {
+		mmm.innerText= i;
+		zzz.style.width=i + "%";
+		i+=1;
+		if(i==101){clearInterval(stu);gogo()}
+		
+}
+
+let stu=setInterval(count_99,50);
+
+function gogo(){
+zzz.style.backgroundColor="#ff0"
+mmm.classList.add("on");
+}
+
+</script>
+</body>
+
+
+</html>

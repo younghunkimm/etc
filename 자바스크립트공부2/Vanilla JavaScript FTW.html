@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<!-- saved from url=(0038)http://sharedfil.es/js-48hIfQE4XK.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>
+  table {
+    font:13px "lucida grande", arial, sans-serif;
+    text-align:left;
+    border-spacing:20px;
+  }
+  tr:nth-child(even) {
+    background:#f0f0f0;
+  }
+  pre {
+    margin:0;
+  }
+</style>
+<title>Vanilla JavaScript FTW</title>
+</head><body>
+<table>
+<tbody><tr>
+<th>jQuery
+</th><th>JavaScript
+</th></tr><tr>
+<td>
+<pre>$(document).ready(function() {
+  // code…
+});
+</pre>
+</td>
+<td>
+<pre>document.addEventListener("DOMContentLoaded", function() {
+  // code…
+});
+</pre>
+</td>
+</tr><tr>
+<td>
+<pre>var divs = $("div");
+</pre>
+</td>
+<td>
+<pre>var divs = document.querySelectorAll("div");
+</pre>
+</td>
+</tr><tr>
+<td>
+<pre>var newDiv = $("&lt;div/&gt;");
+</pre>
+</td>
+<td>
+<pre>var newDiv = document.createElement("div");
+</pre>
+</td>
+</tr><tr>
+<td>
+<pre>newDiv.addClass("foo");
+</pre>
+</td>
+<td>
+<pre>newDiv.classList.add("foo");
+</pre>
+</td>
+</tr><tr>
+<td>
+<pre>newDiv.toggleClass("foo");
+</pre>
+</td>
+<td>
+<pre>newDiv.classList.toggle("foo");
+</pre>
+</td>
+</tr><tr>
+<td>
+<pre>$("a").click(function() {
+  // code…
+})
+</pre>
+</td>
+<td>
+<pre>[].forEach.call(document.querySelectorAll("a"), function(el) {
+  el.addEventListener("click", function() {
+    // code…
+  });
+});
+</pre>
+</td>
+</tr><tr>
+<td>
+<pre>$("body").append($("&lt;p/&gt;"));
+</pre>
+</td>
+<td>
+<pre>document.body.appendChild(document.createElement("p"));
+</pre>
+</td>
+</tr><tr>
+<td>
+<pre>$("img").filter(":first").attr("alt", "My image");
+</pre>
+</td>
+<td>
+<pre>document.querySelector("img").setAttribute("alt", "My image");
+</pre>
+</td>
+</tr><tr>
+<td>
+<pre>var parent = $("#about").parent();
+</pre>
+</td>
+<td>
+<pre>var parent = document.getElementById("about").parentNode;
+</pre>
+</td>
+</tr><tr>
+<td>
+<pre>var clonedElement = $("#about").clone();
+</pre>
+</td>
+<td>
+<pre>var clonedElement = document.getElementById("about").cloneNode(true);
+</pre>
+</td>
+</tr><tr>
+<td>
+<pre>$("#wrap").empty();
+</pre>
+</td>
+<td>
+<pre>var wrap = document.getElementById("wrap");
+while(wrap.firstChild) wrap.removeChild(wrap.firstChild);
+</pre>
+</td>
+</tr><tr>
+<td>
+<pre>if($("#wrap").is(":empty"))
+</pre>
+</td>
+<td>
+<pre>if(!document.getElementById("wrap").hasChildNodes())
+</pre>
+</td>
+</tr><tr>
+<td>
+<pre>var nextElement = $("#wrap").next();
+</pre>
+</td>
+<td>
+<pre>var nextElement = document.getElementById("wrap").nextSibling;
+</pre>
+</td>
+</tr></tbody></table>
+<div id="ToolTipDic" class="tooltip_dic" style="display: none !important; visibility: hidden !important; position: absolute !important; height: auto !important; width: auto !important; z-index: 1410065406 !important; vertical-align: middle; padding: 1px; margin: 0px !important; font-size: 9pt !important; line-height: normal !important; font-family: &quot;맑은 고딕&quot;; font-weight: bold; color: rgb(0, 0, 0); border: 1px solid rgb(112, 112, 112); background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(240, 240, 240)), to(rgb(220, 220, 220))); overflow: hidden; white-space: nowrap; border-radius: 0.2em; box-shadow: rgba(0, 0, 0, 0.4) 2px 2px 5px; left: 457px !important; top: 533px !important;"></div></body></html>

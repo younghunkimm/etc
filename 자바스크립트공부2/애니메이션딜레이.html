@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+<title>애니메이션딜레이</title>
+<style>
+span {font-size:50px;opacity:0;transition:0.3s;}
+span.on {opacity:1}
+</style>
+<script src="http://code.jquery.com/jquery-1.12.4.js"></script>
+</head>
+<body>
+<span>1</span>
+<span>2</span>
+<span>3</span>
+<script>
+$(function(){
+
+	$("span").each(function(index){
+		$(this).css({transitionDelay:index*0.3+"s",transitionDuration:0.3+"s",opacity:1});
+	});
+
+
+});
+</script>
+</body>
+</html>

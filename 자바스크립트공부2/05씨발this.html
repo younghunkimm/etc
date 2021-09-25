@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>this염병</title>
+    <style>
+        div {width:100px;height:100px;background:#ddd;}
+    </style>
+</head>
+<body>
+    <div class="item1"></div>
+    <div class="item2"></div>
+    <div class="item3"></div>
+    
+    <script>
+        'use strict';
+        const div=document.querySelectorAll("div");
+   
+        const print=function() {
+                if(!this.classList.contains("on")){               
+                    for(let i=0;i<div.length;++i){
+                        div[i].classList.remove("on");
+                    }
+                    this.classList.add("on");
+                }else{
+                    this.classList.remove("on");
+                }
+            }
+
+
+        for(let i=0;i<div.length;++i){
+            div[i].addEventListener("click", print)   
+            }
+//obj.print();      // true
+
+
+    </script>
+</body>
+</html>

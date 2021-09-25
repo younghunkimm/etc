@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+<title>text</title>
+<style>
+#main {background:#369;color:#fff;width:0;overflow:hidden;write-space:nowrap;height:20px;}
+#arry {font-size:100px;}
+.bar {height:20px;width:0;background:#f00;margin-top:20px;}
+</style>
+<script src="http://code.jquery.com/jquery-1.12.4.js"></script>
+</head>
+<body>
+
+<div id="main">text animation</div>
+<div id="arry"></div>
+
+<ul>
+	<li class="bar"></li>
+	<li class="bar"></li>
+	<li class="bar"></li>
+</ul>
+
+<script>
+const text=document.querySelector("#main");
+const dArry=document.querySelector("#arry");
+const Bar=document.querySelectorAll("li");
+const BBq=[50,70,100];
+
+
+var a=0;
+function bbq() {
+ dArry.innerHTML= a ;
+ text.style.width= a + "%";
+  ++a;
+if(a>100) {a=100;return false;}
+}
+setInterval(bbq,50);
+    
+$("ul>li").each(function(i){
+    $(this).animate({width:BBq[i]+"%"},5000)
+})
+
+//function cou(i){
+//		Bar[i].style.width= BBq[i] + "%";
+//    return false;
+//}
+
+//for(i=0;i<Bar.length;++i){
+//	cou(i);	
+//	//setInterval(cou,50);
+//}
+
+
+
+
+function textAni() {
+ this.style.color="#fff";
+ this.style.backgroundColor="red";
+}
+
+text.addEventListener("click",textAni);
+
+
+
+</script>
+</body>
+</html>

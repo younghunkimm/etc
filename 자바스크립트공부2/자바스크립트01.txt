@@ -1,0 +1,58 @@
+﻿[].forEach.call( document.querySelectorAll('a'), function(el) {
+   // whatever with the current node
+});
+
+forEach( document.querySelectorAll('a'), function( el ) {
+   // whatever with the current node
+});
+
+jQuery	JavaScript
+$(document).ready(function() {
+  // code…
+});
+document.addEventListener("DOMContentLoaded", function() {
+  // code…
+});
+
+var divs = $("div");
+var divs = document.querySelectorAll("div");
+
+var newDiv = $("<div/>");
+var newDiv = document.createElement("div");
+
+newDiv.addClass("foo");
+newDiv.classList.add("foo");
+
+newDiv.toggleClass("foo");
+newDiv.classList.toggle("foo");
+
+$("a").click(function() {
+  // code…
+})
+[].forEach.call(document.querySelectorAll("a"), function(el) {
+  el.addEventListener("click", function() {
+    // code…
+  });
+});
+
+$("body").append($("<p/>"));
+document.body.appendChild(document.createElement("p"));
+
+$("img").filter(":first").attr("alt", "My image");
+document.querySelector("img").setAttribute("alt", "My image");
+
+var parent = $("#about").parent();
+var parent = document.getElementById("about").parentNode;
+
+var clonedElement = $("#about").clone();
+var clonedElement = document.getElementById("about").cloneNode(true);
+
+$("#wrap").empty();
+var wrap = document.getElementById("wrap");
+while(wrap.firstChild) wrap.removeChild(wrap.firstChild);
+
+if($("#wrap").is(":empty"))
+if(!document.getElementById("wrap").hasChildNodes())
+
+var nextElement = $("#wrap").next();
+var nextElement = document.getElementById("wrap").nextSibling;

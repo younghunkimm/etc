@@ -1,0 +1,105 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width">
+<style>
+* {margin:0;padding:0;box-sizing:border-box;text-align:center;color:#333}
+ul {list-style:none;}
+a {text-decoration:none;}
+nav>ul {width:1200px;margin:0 auto}
+nav>ul:after {content:"";display:block;clear:both;}
+nav>ul>li {float:left;width:25%;background:#ddd;}
+nav>ul ul{display:none;background:#ff0;}
+.m_open {text-align:right;display:none;}
+
+@media screen and (max-width:768px){
+nav {position:absolute;top:0;left:-100%;width:100%;transition:0.5s;}
+nav.on {left:-10%;}
+nav>ul {width:100%;margin:0 auto}
+nav>ul:after {content:"";display:block;clear:both;}
+nav>ul>li {float:none;width:100%;background:#ddd;}
+nav>ul ul{display:none;background:#ff0;}
+.m_open {text-align:right;display:block;}
+}
+
+</style>
+
+</head>
+<body>
+
+<h1>반응형 메뉴 만들기 - java script</h1>
+
+
+<div class="m_open">open</div>
+<nav>
+<ul>
+<li><a href="#">menu01</a>
+<ul>
+		<li><a href="#">menu01</a></li>
+		<li><a href="#">menu01</a></li>
+		<li><a href="#">menu01</a></li>
+		<li><a href="#">menu01</a></li>
+	</ul>
+</li>
+<li><a href="#">menu01</a>
+<ul>
+		<li><a href="#">menu01</a></li>
+		<li><a href="#">menu01</a></li>
+		<li><a href="#">menu01</a></li>
+		<li><a href="#">menu01</a></li>
+	</ul>
+</li>
+<li><a href="#">menu01</a>
+<ul>
+		<li><a href="#">menu01</a></li>
+		<li><a href="#">menu01</a></li>
+		<li><a href="#">menu01</a></li>
+		<li><a href="#">menu01</a></li>
+	</ul>
+</li>
+<li><a href="#">menu01</a>
+<ul>
+		<li><a href="#">menu01</a></li>
+		<li><a href="#">menu01</a></li>
+		<li><a href="#">menu01</a></li>
+		<li><a href="#">menu01</a></li>
+	</ul>
+</li>
+</ul>
+</nav>
+<script>
+
+
+
+//const mOpen=document.getElementsByClassName("m_open")[0];
+//const Nav=document.getElementsByTagName("nav")[0];
+
+const mOpen=document.querySelector(".m_open");
+const Nav=document.querySelector("nav");
+const mopne_li=document.querySelectorAll("nav>ul>li");
+const subMenu=document.querySelectorAll("nav>ul>li ul");
+
+mOpen.addEventListener("click", ()=> Nav.classList.toggle("on"));
+
+console.log(subMenu)
+
+//mopne_li.addEventListener("click", ()=>subMenu.style.display="block");
+
+fnb=()=>{
+for (i = 0; i < subMenu.length; i++) {
+if(Nav.classList.contains("on")){
+	if(subMenu[i].style.display==="none"){
+		subMenu[i].style.display="block"
+	}else {
+		subMenu[i].style.display="none"
+	}
+}
+}
+}
+for (i = 0; i < mopne_li.length; i++) {
+subMenu[i].style.display="none";
+mopne_li[i].addEventListener("click", fnb)
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+﻿<html>
+<head>
+<title>카운트만들기</title>
+</head>
+<body>
+
+<p id="count">0</p>
+
+
+
+<script>
+let c=1;
+let mmm=document.getElementById("count");
+function count_99() {
+	for(i=1;i<100;i++){
+		mmm.innerTEXT= i
+	}
+}
+count_99();
+</script>
+</body>
+
+
+</html>

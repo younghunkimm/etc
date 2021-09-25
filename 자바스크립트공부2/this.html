@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+<title>this</title>
+</head>
+<body>
+<a id="link" href="http://naver.com">네이버 바로가기</a>
+<ul>
+	<li>test01</li>
+	<li>test02</li>
+	<li>test03</li>
+	<li>test04</li>
+</ul>
+<script>
+const link=document.getElementById("link");
+const li_link=document.querySelectorAll("ul>li");
+link.addEventListener("click", function(e){
+ e.preventDefault();
+ e.target.style.color="red";
+});
+
+for(i=0;i<li_link.length;i++){
+li_link[i].addEventListener("click", function(e){
+ e.preventDefault();
+for(i=0;i<li_link.length;i++){
+ li_link[i].style.color="blue";
+}
+ e.target.style.color="red";
+});
+}
+
+</script>
+</body>
+</html>

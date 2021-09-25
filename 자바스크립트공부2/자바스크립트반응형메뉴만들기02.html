@@ -1,0 +1,100 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>반응형메뉴만들기</title>
+<style>
+* {margin:0;padding:0;box-sizing:border-box;}
+ul {list-style:none;}
+a {text-decoration:none;color:inherit;}
+
+#mopen {display:none;position:fixed;top:10px;right:10px;width:30px;height:30px;}
+#mopen>span {display:block;position:absolute;width:100%;height:1px;background:#333;}
+#mopen>span:nth-child(1) {top:0}
+#mopen>span:nth-child(2) {top:10px}
+#mopen>span:nth-child(3) {top:10px}
+#mopen>span:nth-child(4) {top:20px}
+
+nav {border-top:1px solid #333;border-bottom:1px solid #333;}
+nav>ul {width:1200px;margin:0 auto;display:flex;}
+nav>ul>li {width:25%;background:#ddd;position:relative;}
+nav>ul>li a {display:block;text-align:center;line-height:30px;}
+nav>ul>li>ul {position:absolute;top:30px;left:0;width:100%;height:0;overflow:hidden;background:#ff0;transition:0.5s;z-index:-1;}
+nav>ul:hover>li ul {height:120px;}
+
+@media screen and (max-width:768px) {
+
+#mopen {display:block;}
+#mopen>span {transition:0.5s;}
+#mopen.on>span:nth-child(1) {display:none;}
+#mopen.on>span:nth-child(2) {transform:rotate(45deg)}
+#mopen.on>span:nth-child(3) {transform:rotate(-45deg)}
+#mopen.on>span:nth-child(4) {display:none;}
+
+
+nav {border-top:none;border-bottom:none;border-right:1px solid #333;position:fixed;top:0;left:-100%;width:calc(100% - 50px);height:100vh;transition:0.5s;}
+nav.on {left:0;}
+nav>ul {width:100%;margin:0 auto;display:flex;flex-direction: column;}
+nav>ul>li {width:100%;background:#ddd;position:relative;transition:0.5s}
+nav>ul>li a {display:block;text-align:center;line-height:30px;}
+nav>ul>li>ul {position:static;top:30px;left:0;width:100%;height:0;overflow:hidden;background:#ff0;transition:0.5s;z-index:-1;}
+
+nav>ul:hover>li ul {height:0;}
+nav>ul>li.on ul {height:120px;}
+}
+
+</style>
+</head>
+<body>
+<div id="mopen">
+	<span></span>
+	<span></span>
+	<span></span>
+	<span></span>
+</div>
+<nav>
+	<ul>
+		<li><a href="#">mm01</a>
+		     <ul>
+			<li><a href="#">mm01</a></li>
+			<li><a href="#">mm01</a></li>
+			<li><a href="#">mm01</a></li>
+			<li><a href="#">mm01</a></li>
+		     </ul>
+		</li>
+		<li><a href="#">mm01</a>
+		     <ul>
+			<li><a href="#">mm01</a></li>
+			<li><a href="#">mm01</a></li>
+			<li><a href="#">mm01</a></li>
+			<li><a href="#">mm01</a></li>
+		     </ul>
+		</li>
+		<li><a href="#">mm01</a>
+		     <ul>
+			<li><a href="#">mm01</a></li>
+			<li><a href="#">mm01</a></li>
+			<li><a href="#">mm01</a></li>
+			<li><a href="#">mm01</a></li>
+		     </ul>
+		</li>
+		<li><a href="#">mm01</a>
+		     <ul>
+			<li><a href="#">mm01</a></li>
+			<li><a href="#">mm01</a></li>
+			<li><a href="#">mm01</a></li>
+			<li><a href="#">mm01</a></li>
+		     </ul>
+		</li>
+	</ul>
+</nav>
+<script>
+const mopen=document.querySelector("#mopen");
+const nav=document.querySelector("nav");
+
+mopen.addEventListener("click" ,  ()=>nav.classList.toggle("on"));
+</script>
+</body>
+</html>

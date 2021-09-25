@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>멈춤 재생 까지는 만듦</title>
+<script src="http://code.jquery.com/jquery-1.12.4.js"></script>
+<style>
+.banner {width:500px;height:350px;overflow:hidden;}
+.banner>ul {position:relative;width:1000px;height:350px;}
+.banner>ul>li {float:left;width:500px;height:350px;}
+</style>
+</head>
+<body>
+<div class="banner">
+	<ul>
+		<li>EVENT01</li>
+		<li>EVENT02</li>
+	</ul>
+</div>
+	<ul>
+		<li class="prev">이전</li>
+		<li class="next">다음</li>
+	</ul>
+	<div class="stop">멈춤</div><div class="play">재생</div>
+
+
+
+<script>
+$(function(){
+/////////////////////////////////////////////
+
+
+$(".play").hide();
+function banner(){
+var auto=setInterval(function(){
+	$(".banner>ul").animate({left:-500},500,function(){
+		$(".banner>ul>li:last").after($(".banner>ul>li:first"));
+		$(".banner>ul").css({left:0});
+	})},2000);
+	$(".stop").click(function(){
+		clearInterval(auto);
+	$(".stop").hide();
+	$(".play").show();
+		//return false;
+	});
+
+}
+banner();
+
+$(".play").click(function(){
+	banner();
+	$(".play").hide();
+	$(".stop").show();
+});
+
+
+
+////////////////////////////////////
+});
+</script>
+</body>
+</html>

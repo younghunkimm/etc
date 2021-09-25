@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>loading event</title>
+    <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(window).load(function(){
+               // $('.loader').fadeIn().delay(500).fadeOut();
+            });
+            
+  
+            $({ val : 0 }).animate({ val : 100 }, {
+                duration: 1500,
+                step: function() {
+                    var num = Math.floor(this.val);
+                    $(".loader").text(num);
+                },
+                complete: function() {
+                    var num = Math.floor(this.val);
+                    $(".loader").text(num);
+                }
+            });
+        });
+    </script>
+    
+    <style>
+        .loader {width: 100%; height: 100%; position: fixed; left: 0; top: 0; background: #fff; z-index: 1000; font-size: 100px;}
+        .content {display: none;}
+    </style>
+</head>
+<body>
+    <div class="loader">
+    
+    </div>
+    
+    <div class="content">
+        <h1>로딩 후 페이지</h1>
+    </div>
+</body>
+</html>
