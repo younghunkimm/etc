@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>동영상</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <style>
+        body{background:#333;}
+        video {width:100%;}
+        img {width:100%;}
+        #movie {width:1000px;height:500px;border-radius:50px;overflow:hidden;position:relative;margin:100px auto;}
+        #movie>div {position:absolute;top:0;left:0;width:100%;}
+        .m_tetx {text-align:center;padding:50px 0 0 0;}
+    </style>
+</head>
+<body>
+    <div id="movie">
+        <div>
+            <video src="img/m01.mp4" autoplay muted loop></video>
+        </div>
+        <div>
+            <img src="img/m_bg.png" alt="">
+        </div>
+        <div class="m_tetx">
+            <span class="play"><i class="xi-play"></i></span>
+            <span class="pause"><i class="xi-pause"></i></span>
+        </div>     
+    </div>
+    <script>
+        $(function(){
+            $(".play").on("click", function(){
+                $("video").trigger("play");
+            });
+           $(".pause").on("click", function(){
+                $("video").trigger("pause");
+            });
+        });
+    </script>
+</body>
+</html>

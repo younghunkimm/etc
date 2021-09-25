@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="js/jquery-1.12.4.min.js"></script>
+</head>
+<body>
+   <ul>
+       <li>mmm01</li>
+       <li>mmm01</li>
+       <li>mmm01</li>
+       <li>mmm01</li>
+   </ul>
+<script>
+   $(function(){
+       $("ul>li").on("click",function(){
+           $(this).css({color:"#f00",background:"#f00"});
+       });
+   });
+</script>    
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <style>
+        div {margin:500px 0 3000px 0;width:1200px;height:300px;background:url(img/bg.jpg)}
+    </style>
+</head>
+<body>
+  
+<div class="scbg">
+    <span>A</span>
+</div>
+  
+   <script>
+    $(function(){
+
+        
+        $(window).on("scroll", pxbg);
+        
+        
+        function pxbg() {
+            var sct=$(window).scrollTop();
+            var this_=$(".scbg");
+            var this_top=$(".scbg").offset().top;
+            var this_h=$(".scbg").height();
+            if(sct>this_top-300 && sct<this_top-300+this_h) {
+                this_.css({backgroundPositionY:(this_top-sct-300)/2 +"px"})
+            }
+        }
+        
+        
+        
+        
+    });
+    </script>
+</body>
+</html>

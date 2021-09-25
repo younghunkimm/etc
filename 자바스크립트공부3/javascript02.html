@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>자바스크립트배우기02</title>
+    <style>
+    </style>
+</head>
+<body>   
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <button id="btn">나를 클릭해줘</button>
+    <script>
+        var a=1;
+        var b=2;
+        var p=document.getElementsByTagName("p");
+        var btn=document.getElementById("btn");
+        function ab(){
+            for(i=0;i<p.length;i++){
+                p[i].innerHTML="바보";
+                console.log(i);
+            }
+            p[2].style.color="red"
+        }
+        //ab();
+        btn.onclick=function(){ab()}
+        //btn.addEventListener("click",ab);
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+

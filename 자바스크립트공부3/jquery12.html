@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>제이쿼리와 자바스크립트</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <style>
+        * {text-align:center;}
+        header {height:200px;}
+        .visual {height:400px;background:#333;color:#fff;}
+        
+        #m01 {background:#eee;padding:100px 0;}
+        #m01>div {width:1200px;margin:0 auto;}
+        #m01>div:after {content:"";display:block;clear:both;}
+        #m01>div>div {float:left;width:50%;padding:0 15px;height:300px;background:#f00;}
+        
+        #m01.on>div>div{background:#ff0;}
+        
+        
+        footer {height:200vh;}
+    </style>
+    <script src="js/jquery-1.12.4.min.js"></script>
+</head>
+<body>
+
+<header>
+    Today is friday
+</header>
+<section class="visual">
+    <div>VISUAL</div>
+</section>
+
+<section id="m01" class="content">
+    <div>
+        <div>A</div>
+        <div>B</div>
+    </div>
+</section>
+
+
+
+<footer>
+    할로윈... 
+</footer>
+
+
+<script>
+    $(function(){
+        $(window).on("scroll", function(){
+            var sct=$(window).scrollTop();
+            var this_top=$(".content").offset().top;
+            console.log(sct);
+            console.log(this_top);
+            if(sct > this_top-250){
+                $(".content").addClass("on");
+            }else{
+                $(".content").removeClass("on");
+            }
+        });
+    });
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

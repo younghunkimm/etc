@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>제이쿼리02</title>
+    <style>
+        ul {margin:0;padding:0;list-style:none;}
+        ul.gnb>li {background:#ddd;}
+        ul.gnb>li ul {background:#ff0;display:none;}
+        a {text-decoration:none;color:inherit;}
+        .gnb {}
+    </style>
+    <script src="js/jquery-1.12.4.min.js"></script>
+</head>
+<body>
+<ul class="gnb">
+    <li><a href="#">menu01</a>
+        <ul class="submenu">
+            <li><a href="#">menu01</a></li>
+            <li><a href="#">menu02</a></li>
+            <li><a href="#">menu03</a></li>
+            <li><a href="#">menu04</a></li>
+            <li><a href="#">menu05</a></li>
+        </ul>
+   </li>
+    <li><a href="#">menu01</a>
+        <ul class="submenu">
+            <li><a href="#">menu01</a></li>
+            <li><a href="#">menu02</a></li>
+            <li><a href="#">menu03</a></li>
+            <li><a href="#">menu04</a></li>
+            <li><a href="#">menu05</a></li>
+        </ul>
+   </li>
+    <li><a href="#">menu01</a>
+        <ul class="submenu">
+            <li><a href="#">menu01</a></li>
+            <li><a href="#">menu02</a></li>
+            <li><a href="#">menu03</a></li>
+            <li><a href="#">menu04</a></li>
+            <li><a href="#">menu05</a></li>
+        </ul>
+   </li>
+    <li><a href="#">menu01</a>
+        <ul class="submenu">
+            <li><a href="#">menu01</a></li>
+            <li><a href="#">menu02</a></li>
+            <li><a href="#">menu03</a></li>
+            <li><a href="#">menu04</a></li>
+            <li><a href="#">menu05</a></li>
+        </ul>
+   </li>
+    <li><a href="#">menu01</a>
+        <ul class="submenu">
+            <li><a href="#">menu01</a></li>
+            <li><a href="#">menu02</a></li>
+            <li><a href="#">menu03</a></li>
+            <li><a href="#">menu04</a></li>
+            <li><a href="#">menu05</a></li>
+        </ul>
+   </li>
+</ul>
+   
+   
+    <script>
+        $(function(){//제이쿼리 시작
+            
+            //$(".test>li").css({color:"#f00"});
+//            $(".gnb>li").on("click", function(){
+//                $(this).find(".submenu").slideDown();
+//                $(this).siblings().find(".submenu").slideUp();
+//            });
+//            $(".gnb>li").on("click", function(){
+//                $(this).find(".submenu").slideToggle();
+//                $(this).siblings().find(".submenu").slideUp();
+//            });     
+            $(".gnb>li>a").on("click", function(){
+                $(this).next().slideToggle();
+                $(this).parent().siblings().find(".submenu").slideUp();
+            });           
+        });//제이쿼리 끝
+    </script>
+</body>
+</html>

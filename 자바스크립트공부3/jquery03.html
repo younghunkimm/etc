@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>제이쿼리03-꼰대가 아주 중요하다고 했음.</title>
+    <style>
+        ul>li {width:200px;height:30px;background:#f00;color:#fff;transition:0.3s;}
+        ul>li.on {color:#f00;width:500px;}
+    </style>
+    <script src="js/jquery-1.12.4.min.js"></script>
+</head>
+<body>
+<ul class="test">
+    <li>01</li>
+    <li>02</li>
+    <li>03</li>
+    <li>04</li>
+    <li>05</li>
+</ul>
+   
+   
+    <script>
+        $(function(){//제이쿼리 시작
+            $(".test>li").on("mouseover", function(){
+                //$(".test>li").removeClass("on");
+                $(this).toggleClass("on").siblings().removeClass("on");
+            }); 
+            
+            
+        });//제이쿼리 끝
+    </script>
+</body>
+</html>

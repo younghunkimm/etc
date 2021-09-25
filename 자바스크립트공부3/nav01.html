@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>상단메뉴유형</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;list-style:none;font-size:inherit;color:inherit;text-decoration:none;font-weight:inherit;}
+        header {width:1800px;margin:100px auto;background:#ddd;}
+        header ul {font-size:0;}
+        header li {display:inline-block;font-size:14px;padding:0 15px;}
+        
+        
+        .case01>nav {float:left;width:40%;}
+        .case01>h1 {float:left;width:20%;text-align:center;font-size:16px;}        
+        .case01>ul.top-right {float:right;}
+        .case01:after {content:"";display:block;clear:both;}
+        
+        
+        .case02 {font-size:0;}
+        .case02>nav {display:inline-block;width:40%;}
+        .case02>h1 {display:inline-block;width:20%;text-align:center;font-size:16px;}        
+        .case02>ul.top-right {display:inline-block;width:40%;text-align:right;}  
+        
+        
+        .case03 {font-size:0;position:relative;}
+        .case03>nav {position:absolute;top:0;left:0;display:inline-block;width:40%;}
+        .case03>h1 {margin:0 auto;width:20%;text-align:center;font-size:16px;}        
+        .case03>ul.top-right {position:absolute;top:0;right:0;display:inline-block;width:40%;text-align:right;} 
+        
+    </style>
+</head>
+<body>
+    <header class="case01">       
+        <nav>
+            <ul>
+                <li><a href="#">menu01</a></li>
+                <li><a href="#">menu01</a></li>
+                <li><a href="#">menu01</a></li>
+                <li><a href="#">menu01</a></li>
+                <li><a href="#">menu01</a></li>
+            </ul>
+        </nav>
+        <h1>LOGO</h1>
+        <ul class="top-right">
+            <li><a href="#">top01</a></li>
+            <li><a href="#">top02</a></li>
+            <li><a href="#">top03</a></li>
+        </ul>
+    </header>
+    <header class="case02">
+        <nav>
+            <ul>
+                <li><a href="#">menu01</a></li>
+                <li><a href="#">menu01</a></li>
+                <li><a href="#">menu01</a></li>
+                <li><a href="#">menu01</a></li>
+                <li><a href="#">menu01</a></li>
+            </ul>
+        </nav>
+        <h1>LOGO</h1>
+        <ul class="top-right">
+            <li><a href="#">top01</a></li>
+            <li><a href="#">top02</a></li>
+            <li><a href="#">top03</a></li>
+        </ul>
+    </header>
+    <header class="case03">
+        <nav>
+            <ul>
+                <li><a href="#">menu01</a></li>
+                <li><a href="#">menu01</a></li>
+                <li><a href="#">menu01</a></li>
+                <li><a href="#">menu01</a></li>
+                <li><a href="#">menu01</a></li>
+            </ul>
+        </nav>
+        <h1>LOGO</h1>
+        <ul class="top-right">
+            <li><a href="#">top01</a></li>
+            <li><a href="#">top02</a></li>
+            <li><a href="#">top03</a></li>
+        </ul>
+    </header>
+</body>
+</html>

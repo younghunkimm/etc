@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>슬릭 풀페이지 실습01</title>
+
+    <link href="css/reset.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/slick.css" rel="stylesheet">
+    <script src="js/jquery-1.12.4.min.js"></script>
+
+    <script src="js/slick.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <style>
+        .slick-full .pof01 {height:50vh;display:block;position:relative;}
+        .slick-full .pof02 {height:50vh;display:block;position:relative;}
+        .slick-full .pof03 {height:50vh;display:block;position:relative;}
+        .slick-full .pof04 {height:50vh;display:block;position:relative;}
+        .slick-full figure h2 {position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}
+        .slick-full figure h2 {font-size:50px;font-weight:900;}
+        
+        .sound {position:absolute;top:0;left:0;height:0;width:0;overflow:hidden;}
+        
+        header {position:fixed;top:30px;left:30px;z-index:1}
+        nav {position:fixed;top:30px;right:30px;z-index:1}
+
+        section {position:relative;width:1600px;margin:100px auto;overflow:hidden;}    
+        .gangsi {position:absolute;top:0;left:0;height:50vh;width:100%;background:#fff;z-index:-1;}
+        .gangsi>div {position:absolute;bottom:50px;right:100px;}
+        .gangsi>div.on {animation:gangsi 0.2s both;}
+        
+        @keyframes gangsi{
+            0%{transform:translate(0, 0)}
+            50%{transform:translate(0, -50px)}
+            100%{transform:translate(0, 0)}
+        }
+    </style>
+</head>
+<body>
+
+    
+    <section>
+        <div class="slick-full">
+            <figure class="pof01">
+                <h2></h2>
+            </figure>
+            <figure class="pof02">
+                <h2></h2>
+            </figure>
+            <figure class="pof03">
+                <h2></h2>
+            </figure>
+            <figure class="pof04">
+                <h2></h2>
+            </figure>
+        </div>
+        <div class="gangsi">
+            <div>
+                <img src="img/gangsi.jpg">
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        
+    </footer>
+    <script>
+        $(function(){
+            
+            //슬릭슬라이드 옵션주는 건 http://sipossa.pe.kr/j01/slick01.html 참고
+            var bhc=$('.slick-full').slick({
+                //fade:true,
+                autoplay:true,
+                autoplaySpeed:1500,
+                vertical:true,
+                arrows:false,
+                speed:300,
+                pauseOnHover:false,
+                pauseOnFocus:false,
+            });
+            var x=0;
+            var b=0;
+            //배경을 움직여보자...
+            bhc.on("beforeChange", function(event,slick,currentSlide,nextSlide){
+                x++;
+                b++;
+                $("figure h2").text(b+"번 뛴당");
+                if(x==7) {
+                    $(".gangsi>div").css({right:-400 + "px"});
+                    x= -1;                    
+                }
+                $(".gangsi>div").stop().animate({right:200*(x+1) + "px"},1000, "easeOutBounce");
+                $(".gangsi>div").removeClass("on");                
+            });
+            bhc.on("afterChange", function(event,slick,currentSlide,nextSlide){
+                $(".gangsi>div").addClass("on");                
+            })
+            
+            
+        });
+    </script>
+</body>
+</html>

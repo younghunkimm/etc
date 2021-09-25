@@ -1,0 +1,157 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>slick01</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/slick.css">
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/circle-progress.min.js"></script>
+    <style> 
+        *{outline:1xp solid #f00; }
+        .main {position:relative;width:1200px;margin:100px auto;}
+        .main .dots {position:absolute;top:0;left:0;}
+        .main .dots>li {height:100px;font-size:12px;font-weight:700;position:relative;padding:0 0 0 30px;}
+        .main .dots>li:after {content:"";display:block;width:10px;height:10px;border-radius:50%;background:#f00;position:absolute;top:5px;left:0;}
+        .main .dots>li.on:before {content:"";display:block;width:20px;height:20px;border-radius:50%;background:#f00;opacity:0.5;position:absolute;top:0;left:-5px;}
+        .main .bar {position:absolute;top:10px;left:4px;width:2px;height:0;background:#f00;transition:0.3s;}
+        .main .text {position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:1200px;text-align:center;}
+        .main .text>span {display:inline-block;width:200px;height:200px;background:url(img/text09.png);color:transparent;transition:0.7s 0.3s;}
+        .main .text>span:nth-child(4) {transition:1s 0.3s;}
+        .main-slider figure {width:100%;position:relative;}
+        .main-slider figure img {opacity:0;transition:0.3s;position:relative;z-index:2}
+        .main-slider figure.on img {opacity:1;}
+        .main-slider figure img {margin:0 auto;}
+        .main-slider figure.on.slt01 .text>span:nth-child(1) {background-position: 0 -2200px}
+        .main-slider figure.on.slt02 .text>span:nth-child(1) {background-position: 0 -2200px}
+        .main-slider figure.on.slt03 .text>span:nth-child(1) {background-position: 0 -6400px}
+        .main-slider figure.on.slt04 .text>span:nth-child(1) {background-position: 0 -8400px}
+        
+        .main-slider figure.on.slt01 .text>span:nth-child(2) {background-position: 0 -3800px}
+        .main-slider figure.on.slt02 .text>span:nth-child(2) {background-position: 0 -3800px}
+        .main-slider figure.on.slt03 .text>span:nth-child(2) {background-position: 0 -4000px}
+        .main-slider figure.on.slt04 .text>span:nth-child(2) {background-position: 0 -4000px}
+        
+        .main-slider figure.on.slt01 .text>span:nth-child(3) {background-position: 0 -3800px}
+        .main-slider figure.on.slt02 .text>span:nth-child(3) {background-position: 0 -3800px}
+        .main-slider figure.on.slt03 .text>span:nth-child(3) {background-position: 0 -6400px}
+        .main-slider figure.on.slt04 .text>span:nth-child(3) {background-position: 0 -8400px}
+        
+        .main-slider figure.on.slt01 .text>span:nth-child(4) {background-position: 0 -3400px}
+        .main-slider figure.on.slt02 .text>span:nth-child(4) {background-position: 0 -3800px}
+        .main-slider figure.on.slt03 .text>span:nth-child(4) {background-position: 0 -4000px}
+        .main-slider figure.on.slt04 .text>span:nth-child(4) {background-position: 0 -4000px}
+
+    </style>
+</head>
+<body>
+   <section class="main">
+     <div class="main-slider">
+        <figure class="slide-item slt01"> 
+                <div class="text">
+                    <span>1</span>
+                    <span>9</span>
+                    <span>7</span>
+                    <span>2</span>
+               </div>  
+              <img src="img/togater01.png">
+        </figure>
+        <figure class="slide-item slt02">
+                <div class="text">
+                    <span>1</span>
+                    <span>9</span>
+                    <span>8</span>
+                    <span>2</span>
+               </div>    
+              <img src="img/togater02.png">
+        </figure>
+        <figure class="slide-item slt03">
+                <div class="text">
+                    <span>2</span>
+                    <span>0</span>
+                    <span>0</span>
+                    <span>2</span>
+               </div>    
+              <img src="img/togater03.png">
+        </figure>
+        <figure class="slide-item slt04">  
+                <div class="text">
+                    <span>2</span>
+                    <span>0</span>
+                    <span>1</span>
+                    <span>2</span>
+               </div>  
+              <img src="img/togater04.png">
+          </figure>
+      </div> 
+      <ul class="dots">
+          <li>1972</li>
+          <li>1982</li>
+          <li>2002</li>
+          <li>2012</li>
+      </ul>
+      <div class="bar"></div> 
+   </section>
+    <script>
+        $(function(){   
+            
+
+            $(".main-slider").slick({
+                autoplay:true,
+                autoplaySpeed:5000,
+                pauseOnHover:false,
+                pauseOnFocus:false,
+                speed:0,
+                arrows:false,
+            });
+
+            $(".main-slider figure").eq(1).addClass("on");
+            $(".dots>li").eq(0).addClass("on");
+            $(".main-slider").on('afterChange', function(event, slick, currentSlide, nextSlide){
+                 //$(".main-slider").find("img").fadeOut(1000);
+                 //$(".main-slider").find("img").removeClass("on");
+                 //$(".main-slider figure").eq(currentSlide+1).find("h3").addClass("on");
+                 $(".main-slider figure").eq(currentSlide+1).addClass("on").siblings().removeClass("on");
+                 $(".dots>li").eq(currentSlide).addClass("on").siblings().removeClass("on");
+                 $(".bar").css({height:100*currentSlide});
+                
+//                var tx=$(".main .text>span").eq(0).text();
+//                var to1=$(".main-slider figure").eq(currentSlide+1).find("span").eq(0).text();
+//                var to2=$(".main-slider figure").eq(currentSlide+1).find("span").eq(1).text();
+//                var to3=$(".main-slider figure").eq(currentSlide+1).find("span").eq(2).text();
+//                var to4=$(".main-slider figure").eq(currentSlide+1).find("span").eq(3).text();
+//                console.log(to1);
+//                console.log(to2);
+//                console.log(to3);
+//                console.log(to4);
+//                //$(".main-slider figure").eq(currentSlide+1).find("span").css({backgroundPositionY:0})
+//                $(".main-slider figure").eq(currentSlide+1).find("span").delay(100).eq(0).animate({backgroundPositionY:-to1*200-4000},500)
+//                $(".main-slider figure").eq(currentSlide+1).find("span").delay(300).eq(1).animate({backgroundPositionY:-to2*200-4000},500)
+//                $(".main-slider figure").eq(currentSlide+1).find("span").delay(500).eq(2).animate({backgroundPositionY:-to3*200-4000},500)
+//                $(".main-slider figure").eq(currentSlide+1).find("span").delay(700).eq(3).animate({backgroundPositionY:-to4*200-4000},500)
+            });
+            
+            $(".dots>li").on("click",function(){
+                    var i=$(this).index();
+                    $(".main-slider").slick("slickGoTo", i, true);
+            });
+            
+            
+        })
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

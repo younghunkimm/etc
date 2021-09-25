@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>slick01</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/slick.css">
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/circle-progress.min.js"></script>
+    <style> 
+        
+        .main{margin:100px 0;height:800px;overflow:hidden;position:relative;}
+        
+        .main h2 {position:absolute;font-size:70px;color:rgba(255,255,255,0.75);z-index:7;top:50%;right:80px;}
+        
+        .main-slider figure {position:relative;height:800px;overflow:hidden;}
+        .main-slider figure h3{position:absolute;top:80%;left:20%;transform:translateY(-50%);font-size:30px;font-weight:900;color:#333;z-index:4; opacity:0;transition:0.5s 0.5s;}      
+    
+        .main-slider figure img{position:absolute;top:100px;right:-1000px;transition:0.5s 1.5s;z-index:4;}
+        
+        
+        
+        .main-slider figure.on h3{top:50%;opacity:1;}
+        .main-slider figure.on img {right:400px;}
+        
+        .main-slider figure div.front {background:#f66;position:absolute;top:0;left:0;width:0;height:800px;opacity:1;transition:1s;z-index:2;}
+        .main-slider figure.on div.front {width:100%;}
+        .main-slider figure div.back {background:#39c;position:absolute;top:0;left:0;width:0;height:800px;z-index:1;}        
+        .main-slider figure.on div.back {width:100%;}
+        
+        
+        
+        .main-slider figure .cover {position:absolute;top:50%;right:-350px;transform: translate(0, -50%); width:1200px;height:1200px;transition:1s;border-radius:50%;background: #ff3;z-index:3;}
+        .main-slider figure.on .cover {transform: translate(0, -50%)}
+        
+        .main-slider ul.slick-dots {position:absolute;top:50%;right:-350px;transform: translateY(-50%);width:1200px;height:1200px;border-radius:50%;overflow:hidden;}
+        
+        .main-slider ul.slick-dots>li {position:absolute;top:50%;right:200px;transform: translateY(-50%);border:200px solid transparent;width:800px;height:800px;border-radius:50%; z-index:4;}
+        .main-slider ul.slick-dots>li.slick-active {background: #f66;opacity:1;}
+        .main-slider ul.slick-dots button {display:none;}
+        
+        
+        .cover_o {position:absolute;top:50%;right:-150px;transform: translateY(-50%);width:800px;height:800px;border-radius:50%;z-index: 6;}
+        .cover_o>li {position:absolute;font-size:18px;width:100px;}
+        .cover_o>li:nth-child(1)  {top:80px;left:200px;}
+        .cover_o>li:nth-child(2)  {top:200px;left:100px;}
+        .cover_o>li:nth-child(3)  {top:320px;left:30px;}
+        .cover_o>li.on h4{color:antiquewhite}
+        .cover_o>li span {display:block;width:5px;height:5px;border-radius:50%;background:#fff;margin:10px;}
+        .cover_o>li.on span:nth-child(2){background:#000;transition:0.3s 1s;}
+        .cover_o>li.on span:nth-child(3){background:#000;transition:0.3s 2s;}
+        .cover_o>li.on span:nth-child(4){background:#000;transition:0.3s 3s;}
+        .cover_o>li.on span:nth-child(5){background:#000;transition:0.3s 4s;}
+
+    </style>
+</head>
+<body>
+    <div class="second circle">
+
+    </div>
+   <section class="main">
+    <div class="count"></div>
+    <h2 class="title">나는 바보다. 01</h2>
+     <div class="main-slider">
+          <figure class="slide-item slt01">
+              <img src="img/@thum_prd02.png">
+              <h3>나는 바보다. 01 </h3>
+              <div class="front"></div>
+              <div class="back"></div>
+              <div class="cover"></div>
+          </figure>
+          <figure class="slide-item slt02">
+             <img src="img/@thum_prd03.png">
+              <h3>나는 바보다. 02 </h3>
+              <div class="front"></div>
+              <div class="back"></div>
+              <div class="cover"></div>
+
+          </figure>
+          <figure class="slide-item slt03">
+              <img src="img/@thum_prd04.png">
+              <h3>나는 바보다. 03</h3>
+              <div class="front"></div>
+              <div class="back"></div>
+              <div class="cover"></div>
+          </figure>
+      </div>  
+     <ul class="cover_o">
+            <li>
+                <h4>text01</h4>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </li>
+            <li>
+                <h4>text02</h4>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </li>
+            <li>
+                <h4>text03</h4>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </li>
+     </ul>
+   </section>
+   
+    <script>
+        $(function(){   
+            
+            $(".main-slider").on('init reInit afterChange', function(event, slick, currentSlide, nextSlide){
+                //console.log(nextSlide);
+                var i = (currentSlide ? currentSlide : 0) + 1;
+                $(".count").text(i +"/"+slick.slideCount);
+            });
+
+            $(".main-slider").slick({
+                autoplay:true,
+                autoplaySpeed:6000,
+                pauseOnHover:false,
+                pauseOnFocus:false,
+                dots:true,
+                arrows:false,
+                //fade:true,
+                //vertical:true,
+                //verticalSwiping:true,
+                speed:0,
+                //waitForAnimate: false
+            });
+            
+            var bgM=["#f66","#ff3","#39c","#f66"]
+
+            
+            $(".main-slider figure").eq(1).addClass("on");           
+            $(".cover_o li").eq(0).addClass("on");
+            
+            $(".main-slider").on('afterChange', function(event, slick, currentSlide, nextSlide){
+                 $(".main-slider figure").eq(currentSlide+1).addClass("on").siblings().removeClass("on");
+                 $(".cover_o>li").eq(currentSlide).addClass("on").siblings().removeClass("on");
+                 $("ul.slick-dots").css({borderColor:bgM[currentSlide]});
+                 $("ul.slick-dots>li").css({background:"rgba(0,0,0,0)"});
+                if($("ul.slick-dots>li").hasClass("slick-active")){
+                    setTimeout(
+                    function(){$("ul.slick-dots>li").css({background:bgM[currentSlide+1]});},1400
+                        );
+                    setTimeout(
+                    function(){$("ul.slick-dots>li").css({background:"rgba(0,0,0,0)"});},6000
+                        )
+                }
+                 
+                 $(".front").css({background:bgM[currentSlide+1]});
+                 $(".back").css({background:bgM[currentSlide]});
+                 $(".cover").css({background:"transparent"});
+                
+                $(".title").text($(".main-slider figure").eq(currentSlide+1).find("h3").text());
+                $('.cover').circleProgress({ value: 1, thickness: 200, reverse: true, lineCap: 'round',
+					startAngle: 300,size:1200, fill: { color: bgM[currentSlide] }});
+            });
+            
+
+            $(".cover_o h4").on("click", "", function(){
+                    var i=$(this).parent().index();
+                    $(".main-slider").slick("slickGoTo", i, true)
+            });
+
+            
+            
+        })
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

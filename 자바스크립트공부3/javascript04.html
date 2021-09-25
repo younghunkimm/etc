@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+   <ul>
+       <li>mmm01</li>
+       <li>mmm01</li>
+       <li>mmm01</li>
+       <li>mmm01</li>
+   </ul>
+<script>
+   var bhc=document.querySelectorAll("ul>li");
+    //console.log(bhc.length);
+    //자바스크립트는 제이쿼리와는 달리 여러개를 선택했을 때 for반복문을 써서 순회해야합니다. 
+    for(i=0;i<bhc.length;i++){
+        bhc[i].addEventListener("click",function(e){
+            e.target.style.color="#f00";
+        });
+    }
+
+</script>    
+</body>
+</html>

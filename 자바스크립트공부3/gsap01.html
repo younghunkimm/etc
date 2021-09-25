@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>text</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <style>
+        .move {width:100px;height:100px;background:#f00;border-radius:50%;}
+    </style>
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/gsap.min.js"></script>
+</head>
+<body>
+    <div class="btn">click</div>
+    <div class="move">a</div>
+    <div class="move">b</div>
+
+    <script>
+        
+        function move(){
+             gsap.to(".move", {duration:2, x:300, borderRadius:"10px", width:"50px", height:"50px", backgroundColor:"#ff0", ease:"bounce"});            
+        }
+       //move();
+        
+        $(".btn").on("click", move)
+        
+        
+        
+        
+        $(function(){
+           //$(".text").css({backgroundPositionY:"2400px"});
+            $("ul>li").on("click", function(){
+                //$(".text").css({backgroundPositionY:-200*$(this).index()+2000*$(this).index()});
+                $(".textall").toggleClass("on");
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+

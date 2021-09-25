@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>제이쿼리와 자바스크립트</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <style>
+        * {text-align:center;}
+        header {height:200px;}
+        .visual {height:400px;background:#333;color:#fff;}
+        
+        #m01 {background:#eee;padding:100px 0;overflow:hidden;}
+        #m01>div {width:1200px;margin:0 auto;}
+        #m01>div:after {content:"";display:block;clear:both;}
+        #m01>div>div {float:left;width:33.333333%;height:400px;padding:0 15px;position:relative;}
+        #m01 img {display:block;width:100%;position:absolute;top:0;opacity:0;}
+        
+        
+        #m02 {background:#eee;padding:100px 0;overflow:hidden;}
+        #m02>div {width:1200px;margin:0 auto;}
+        #m02>div:after {content:"";display:block;clear:both;}
+        #m02>div>div {float:left;width:50%;height:500px;padding:0 15px;position:relative;}
+        #m02 img {display:block;width:100%;position:absolute;top:0;}
+        
+        
+        
+        #m03 {background:#eee;padding:100px 0;overflow:hidden;}
+        #m03>div {width:1200px;margin:0 auto;}
+        #m03>div:after {content:"";display:block;clear:both;}
+        #m03>div>div {float:left;width:33.333333%;height:400px;padding:0 15px;position:relative;}
+        #m03 img {display:block;width:100%;position:absolute;top:0;opacity:0;}
+        
+        #m01 .han01 img{left:-100px;opacity:0;transition:0.3s;}
+        #m01 .han02 img{top:100px;opacity:0;transition:0.3s 0.3s;}
+        #m01 .han03 img{left:100px;opacity:0;transition:0.3s 0.6s;}
+        
+        #m01.on .han01 img{left:0;opacity:1;}
+        #m01.on .han02 img{top:0;opacity:1;}
+        #m01.on .han03 img{left:0;opacity:1;}
+        
+        
+        #m02 .han01 img{left:-100px;opacity:0;transition:0.3s;}
+        #m02 .han02 img{top:100px;opacity:0;transition:0.3s 0.3s;}
+        
+        #m02.on .han01 img{left:0;opacity:1;}
+        #m02.on .han02 img{top:0;opacity:1;}
+ 
+        
+        #m03 .han01 img{left:-100px;opacity:0;transition:0.3s;}
+        #m03 .han02 img{top:100px;opacity:0;transition:0.3s 0.3s;}
+        #m03 .han03 img{left:100px;opacity:0;transition:0.3s 0.6s;}
+        
+        #m03.on .han01 img{left:0;opacity:1;}
+        #m03.on .han02 img{top:0;opacity:1;}
+        #m03.on .han03 img{left:0;opacity:1;}
+        
+        
+        footer {height:200vh;}
+    </style>
+    <script src="js/jquery-1.12.4.min.js"></script>
+</head>
+<body>
+
+<header>
+    Today is friday
+</header>
+<section class="visual">
+    <div>VISUAL</div>
+</section>
+
+<section id="m01" class="content">
+    <div>
+        <div class="han01">
+            <img src="img/s01.jpg" alt="">
+        </div>
+        <div class="han02">
+            <img src="img/s02.jpg" alt="">
+        </div>
+        <div class="han03">
+            <img src="img/s03.jpg" alt="">
+        </div>
+    </div>
+</section>
+<section id="m02" class="content">
+    <div>
+        <div class="han01">
+            <img src="img/s01.jpg" alt="">
+        </div>
+        <div class="han02">
+            <img src="img/s02.jpg" alt="">
+        </div>
+    </div>
+</section>
+<section id="m03" class="content">
+    <div>
+        <div class="han01">
+            <img src="img/s01.jpg" alt="">
+        </div>
+        <div class="han02">
+            <img src="img/s02.jpg" alt="">
+        </div>
+        <div class="han03">
+            <img src="img/s03.jpg" alt="">
+        </div>
+    </div>
+</section>
+
+<footer>
+    할로윈... 
+</footer>
+
+
+<script>
+    $(function(){
+        $(window).on("scroll", function(){
+            var sct=$(window).scrollTop();
+            $(".content").each(function(){
+                var this_top=$(this).offset().top;
+                var m=($(window).height()-$(this).height())/2+200;
+                console.log(m);
+                if(sct > this_top-m){
+                    $(this).addClass("on");
+                }else{
+                    $(this).removeClass("on");
+                }            
+            })
+
+        });
+    });
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

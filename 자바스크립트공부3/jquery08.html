@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>팝업01</title>
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <style>
+        .top {height:100px;background:#f00;color:#fff;position:absolute;top:-95px;left:0;width:100%;transition:0.3s;}
+        .top.on {top:0;}
+        .top i {font-size:14px;background:#333;border-radius:50%;transition:1s 1s;}
+        .top.on i {transform:rotate(180deg)}
+        .top-close {width:150px;height:20px;line-height:15px;text-align:center;background:#f00;position:absolute;bottom:-20px;right:50px;border-radius:0 0 5px 5px;font-size:12px;text-transform:uppercase;}
+        
+        header h1{height:150px;background:#ddd;text-align:center;line-height:150px;}
+        .visual {height:500px;background:#333;color:#fff;text-align:center;font-size:50px;font-weight:900;line-height:500px;}
+        .popup01 {width:400px;height:500px;background:#f00;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}
+        .popup02 {width:400px;height:500px;background:#ff0;position:absolute;top:30%;left:30%;transform:translate(-50%,-50%)}
+        .popup01>span, .popup02>span {display:block;width:120px;height:30px;background:#333;color:#fff;text-align:center;line-height:30px;border-radius:3px;position:absolute;bottom:15px;right:15px;cursor:pointer;}
+        .pop-open {width:120px;height:80px;background:#f00;color:#fff;line-height:80px;text-align:center;border-radius:15px;position:relative;top:-40px;margin:0 auto;}
+    </style>
+</head>
+<body>
+<div class="top">
+    내용....
+    <div class="top-close"><i class="xi-angle-down-min"></i>event close</div>
+</div>
+    <header>
+        <h1>LOGO</h1>
+    </header>
+    <section class="visual">
+         호빵맨~. 최고의 애니였지...
+    </section>
+    <footer>
+         <div class="pop-open">팝업열기</div>
+    </footer>
+    <div class="popup01">
+        <span class="pop-close">close</span>
+    </div>
+    <div class="popup02">
+        <span class="pop-close">close</span>
+    </div>
+  
+   <script>
+    $(function(){
+
+//        $(".popup01>span").on("click",function(){
+//            $(".popup01").hide();
+//        });
+//        $(".popup02>span").on("click",function(){
+//            $(".popup02").hide();
+//        });    
+        
+// $(this) 와 $(this).index() 아주 중요함....
+        
+        
+        $(".pop-close").on("click",function(){
+            $(this).parent().hide();
+        });
+        
+        $(".pop-open").on("click",function(){
+            $(".popup01, .popup02").show();
+        });
+        
+        $(".top-close").on("click",function(){
+            //$(".top").addClass("on");
+            $(".top").toggleClass("on");
+        });
+        
+    });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,33 @@
+﻿<!doctype html>
+<html>
+<head>
+<title>텍스트애니메이션을 만들어보자</title>
+<script src="http://code.jquery.com/jquery-1.12.4.js"></script>
+</head>
+<body>
+
+<p class="textall">나는 병신이다.</p>
+
+<script>
+$(function(){
+
+const textAll=$("p").text();
+const texeEach=textAll.split("");
+console.log(texeEach[0]);
+
+var ele=[];
+
+
+$(texeEach).each(function(index){
+	var inHTml="<span>"+$(texeEach).get(index)+"</span>"
+	ele.push($(inHTml).get(0));
+	$("p").html(ele);
+});
+//ele[0].hide();
+console.log(ele);
+
+
+});
+</script>
+</body>
+</html>

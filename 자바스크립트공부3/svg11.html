@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>svg애니메이션</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <style>        
+        #main_movie {width:1000px;position:absolute;top:0;left:0;width:1000px;height:1000px;overflow:hidden;transition:0.3s}
+        #main_movie.oo {top:-1000px;left:-1000px;transform:scale(0.2)}
+        #main_movie path {fill:#fff;opacity:0.2;animation:svgani 4.5s infinite}   
+        #main_movie path:nth-child(1) {transform:translate(-40px,-40px) scale(1.1)}
+        #main_movie path:nth-child(2) {transform:translate(-20px,-20px) scale(1.05)}
+        #main_movie path:nth-child(3) {opacity:1;}
+        
+        #main_movie:after {content:"^^*";display:block;width:100px;height:100px;text-align:center;line-height:100px;background:#ff0;border-radius:50%;opacity:0.5;position:absolute;top:20%;right:220px;animation:won 2.5s infinite}
+        .btn {position:absolute;top:20%;left:220px;width:100px;height:100px;text-align:center;line-height:100px;border-radius:50%;background:#f00;color:#fff;cursor:pointer}
+        
+        @keyframes svgani{
+            0% {d:path("M786.486,500.5c0,71.012-25.836,135.988-68.621,186.043C665.32,748.018,587.211,786.986,500,786.986c-81.902,0-155.776-34.368-207.988-89.47C243.357,646.17,213.514,576.82,213.514,500.5c0-83.08,35.365-157.9,91.863-210.229c51.098-47.328,119.482-76.256,194.623-76.256c76.005,0,145.097,29.598,196.379,77.896	C751.853,344.155,786.486,418.283,786.486,500.5z");}
+            50% {d:path("M786.486,500.5c0,71.012-5.123,177.524-47.908,227.579C686.033,789.554,587.211,758.077,500,758.077c-81.902,0-171.187,28.104-223.398-26.998c-48.654-51.347-63.087-154.259-63.087-230.579c0-83.08,6.59-162.57,63.087-214.899c51.098-47.328,140.849-37.498,215.989-37.498c76.005,0,169.866-10.016,221.148,38.282	C769.213,338.63,786.486,418.283,786.486,500.5z");}
+            100% {d:path("M786.486,500.5c0,71.012-25.836,135.988-68.621,186.043C665.32,748.018,587.211,786.986,500,786.986c-81.902,0-155.776-34.368-207.988-89.47C243.357,646.17,213.514,576.82,213.514,500.5c0-83.08,35.365-157.9,91.863-210.229c51.098-47.328,119.482-76.256,194.623-76.256c76.005,0,145.097,29.598,196.379,77.896	C751.853,344.155,786.486,418.283,786.486,500.5z");}
+        }
+        
+        @keyframes won{
+            0%{transform:scale(0.3)}
+            50%{transform:scale(1)}
+            100%{transform:scale(0.3)}
+        }
+    </style>
+
+</head>
+<body>
+<section id="main_movie">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="1000px" height="1000px" viewBox="0 0 1000 1000" enable-background="new 0 0 1000 1000" xml:space="preserve">
+	         <defs>
+        <mask id="photo-mask">
+<path d=""/>
+<path d=""/>
+<path d=""/>
+        </mask>
+        </defs>  
+        <image mask="url(#photo-mask)" xlink:href="img/pbg02.jpg"/>
+</svg>
+</section>
+<div class="btn">click</div>
+<script>
+    $(function(){
+        $(".btn").on("click",function(){
+            $("#main_movie").toggleClass("oo");
+        })
+    })
+</script>
+</body>
+</html>

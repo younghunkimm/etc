@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>slick01</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/slick.css">
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/circle-progress.min.js"></script>
+    <style> 
+        .main-slider {width:1900px}
+        .main-slider figure {width:100%;}
+        .main-slider figure img {width:100%;}
+        .main-slider figure {position:relative}
+        .main-slider figure a {display:block;position:absolute;top:0;left:0;width:100%;height:1000px;border:1px solid #fff;z-index:2}
+        .main-slider figure a:hover {background:rgba(0,0,0,0.5)}
+        .main-slider figure a+h3 {position:absolute;top:0;left:0;width:0%;height:100%;display:block;overflow:hidden;z-index:1;}
+        .main-slider figure a+h3 .imb {position:relative;left:475px;transform:translateX(-470px);width:0;height:1000px;transition:0.3s;}
+        .main-slider figure a+h3.on {width:1900px;}
+        .main-slider figure a+h3.on .imb {left:-470px;width:3800px;height:1000px;}
+        .main-slider figure a+h3.on .imb img {display:block;width:1900px;position:absolute;top:0;left:50%;transform:translateX(-50%)}
+        
+    </style>
+</head>
+<body>
+   <section class="main">
+     <div class="main-slider">
+          <figure class="slide-item slt01">
+              <a href="#1"></a>              
+              <h3>
+                  <div class="imb"><img src="img/bbg01.jpg"></div>
+              </h3>
+              <img src="img/sbg01.jpg">
+          </figure>
+          <figure class="slide-item slt02">
+              <a href="#1"></a>              
+              <h3>
+                  <div class="imb"><img src="img/bbg02.jpg"></div>
+              </h3>
+              <img src="img/sbg02.jpg">
+          </figure>
+          <figure class="slide-item slt03">
+              <a href="#1"></a>              
+              <h3>
+                  <div class="imb"><img src="img/bbg03.jpg"></div>
+              </h3>
+              <img src="img/sbg03.jpg">
+          </figure>
+          <figure class="slide-item slt04">
+              <a href="#1"></a>              
+              <h3>
+                  <div class="imb"><img src="img/bbg04.jpg"></div>
+              </h3>
+              <img src="img/sbg04.jpg">
+          </figure>
+          <figure class="slide-item slt01">
+              <a href="#1"></a>              
+              <h3>
+                  <div class="imb"><img src="img/bbg01.jpg"></div>
+              </h3>
+              <img src="img/sbg01.jpg">
+          </figure>
+          <figure class="slide-item slt01">
+              <a href="#1"></a>              
+              <h3>
+                  <div class="imb"><img src="img/bbg02.jpg"></div>
+              </h3>
+              <img src="img/sbg02.jpg">
+          </figure>
+          <figure class="slide-item slt01">
+              <a href="#1"></a>              
+              <h3>
+                  <div class="imb"><img src="img/bbg03.jpg"></div>
+              </h3>
+              <img src="img/sbg03.jpg">
+          </figure>
+          <figure class="slide-item slt01">
+              <a href="#1"></a>              
+              <h3>
+                  <div class="imb"><img src="img/bbg04.jpg"></div>
+              </h3>
+              <img src="img/sbg04.jpg">
+          </figure>
+      </div>  
+
+   </section>
+    <script>
+        $(function(){   
+            
+
+            $(".main-slider").slick({
+                //autoplay:true,
+                autoplaySpeed:4000,
+                pauseOnHover:false,
+                pauseOnFocus:false,
+                dots:true,
+                //centerMode:true,
+                slidesToShow:4,
+                slidesToScroll:4,
+                speed:1200,
+            });
+
+            
+            
+//            $(".main-slider").on('afterChange', function(event, slick, currentSlide, nextSlide){
+//                 $(".main-slider").find("h3").removeClass("on");
+//                 $(".main-slider figure").eq(currentSlide+4).find("h3").addClass("on");
+//            });
+            
+
+            $(".main-slider a").on("mouseenter",function(){
+                console.log($(this).parent().index());
+                $(this).parent().find("h3").css({left:-($(this).parent().index()%4)*100+"%"});
+                $(this).parent().find("h3").addClass("on");
+            });
+            $(".main-slider a").on("mouseleave",function(){
+                $(".main-slider").find("h3").removeClass("on");
+                $(".main-slider").find("h3").css({left:0});
+            });
+            
+            $(".cover_o h4").on("click", "", function(){
+                    var i=$(this).parent().index();
+                    $(".main-slider").slick("slickGoTo", i, true)
+            });
+
+            
+            
+        })
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

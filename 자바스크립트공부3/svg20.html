@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>svg애니메이션 응용</title>
+    <style>
+        body {background:#333;}
+       
+        .hum {margin:0 auto;width:400px;height:400px;opacity:0;transform:scale(0.3) rotate(45deg); filter:url('#bbq');position:relative;transition:1s;}
+        .won {width:50px;height:50px;background:#f00;border-radius:50%;position:absolute;top:70px;left:100px;animation:won 3s infinite}
+        .hum.on {opacity:1;transform:scale(1)}
+        button {position:relative;z-index:999}
+        @keyframes won {
+            0%{transform:translate(100px, 0)}
+            50%{transform:translate(0, 0)}
+            100%{transform:translate(100px, 0)}
+        }
+    </style>
+    <script src="js/jquery-1.12.4.min.js"></script>
+</head>
+<body>
+<div class="hum">
+<div class="won"></div>
+<!--repeatCount="4" fill="freeze-->
+<!--키프레임 적용 해보기-->
+<svg version="1.1" id="hihi" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="400px" height="400px" viewBox="0 0 400 400" enable-background="new 0 0 400 400" xml:space="preserve">
+	 <path fill="#f00" d="">
+     <animate attributeName="d" dur="1.5s"  fill="freeze"
+              values="M293.426,202.47c0,24.229-8.217,44.143-22.95,61.476c-18.942,22.286-48.244,38.798-80.328,38.798
+	c-29.596,0-57.672-6.317-76.502-25.683c-17.461-17.958-26.776-47.945-26.776-74.591c0-24.724,9.312-48.911,24.59-66.393
+	c18.944-21.677,47.113-33.879,78.688-33.88c26.076,0,54.502,12.937,72.678,28.415C284.407,148.99,293.426,172.408,293.426,202.47z; 
+	
+	
+	M293.426,202.47c0,24.229-44.829,18.46-59.563,35.793c-18.942,22.286-11.632,64.48-43.716,64.48
+	c-29.596,0-24.339-38.559-43.169-57.924c-17.461-17.958-60.109-15.704-60.109-42.35c0-24.724,44.285-22.135,59.563-39.617
+	c18.944-21.677,12.141-60.655,43.716-60.656c26.076,0,20.075,49.003,38.251,64.481C249.98,185.056,293.426,172.408,293.426,202.47z;
+	
+	M293.426,202.47c0,24.229-44.829,18.46-59.563,35.793c-18.942,22.286-11.632,64.48-43.716,64.48
+	c-29.596,0-57.672-6.317-76.502-25.683c-17.461-17.958-26.776-47.945-26.776-74.591c0-24.724,98.353,35.013,113.631,17.53
+	c18.944-21.677-41.928-117.803-10.353-117.803c26.076,0,54.502,12.937,72.678,28.415C284.407,148.99,293.426,172.408,293.426,202.47
+	z;
+	
+	
+	M293.426,202.47c0,24.229-8.217,44.143-22.95,61.476c-18.942,22.286-48.244,38.798-80.328,38.798
+	c-29.596,0-57.672-6.317-76.502-25.683c-17.461-17.958-26.776-47.945-26.776-74.591c0-24.724,9.312-48.911,24.59-66.393
+	c18.944-21.677,47.113-33.879,78.688-33.88c26.076,0,54.502,12.937,72.678,28.415C284.407,148.99,293.426,172.408,293.426,202.47z" repeatCount="indefinite"/>
+    </path>
+<defs>
+
+    <filter id="bbq">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+      <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -8" result="bbq" />
+      <feBlend in="SourceGraphic" in="bbq" operator="atop"/>
+  </filter>
+</defs>
+
+</svg>
+
+
+</div>
+<button class="btn">click</button>
+<script>
+    $(function(){
+        $(".btn").on("click", function(){
+            $(".hum").toggleClass("on");
+        });
+    });
+</script>
+</body>
+</html>

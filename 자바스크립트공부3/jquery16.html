@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>제이쿼리와 자바스크립트</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <style>
+        * {text-align:center;}
+        header {height:200px;}
+        .visual {height:400px;background:#333;color:#fff;}
+        
+        #m01 {background:#eee;padding:100px 0;overflow:hidden;}
+        #m01>div {width:1600px;margin:0 auto;position:relative;height:600px;}
+        #m01>div>div {width:200px;border:1px solid #ddd;padding:5px;position:absolute;overflow:hidden;opacity:0;}
+        #m01 img {display:block;width:100%;}
+        
+        
+        #m01>div>div:nth-child(1) {top:50px;left:50px;}
+        #m01>div>div:nth-child(2) {top:150px;left:350px;}
+        #m01>div>div:nth-child(3) {top:250px;left:600px;}
+        #m01>div>div:nth-child(4) {top:350px;left:830px;}
+        #m01>div>div:nth-child(5) {top:450px;left:700px;}
+        #m01>div>div:nth-child(6) {top:550px;left:850px;}
+        #m01>div>div:nth-child(7) {top:350px;left:1250px;}
+        #m01>div>div:nth-child(8) {top:250px;left:250px;}
+        #m01>div>div:nth-child(9) {top:150px;left:150px;}
+            
+        
+        footer {height:200vh;}
+    </style>
+    <script src="js/jquery-1.12.4.min.js"></script>
+</head>
+<body>
+
+<header>
+    Today is friday
+</header>
+<section class="visual">
+    <div>VISUAL</div>
+</section>
+
+<section id="m01" class="content">
+    <div>
+        <div class="han"><img src="img/s01.jpg" alt=""></div>
+        <div class="han"><img src="img/s02.jpg" alt=""></div>
+        <div class="han"><img src="img/s03.jpg" alt=""></div>
+        <div class="han"><img src="img/s01.jpg" alt=""></div>
+        <div class="han"><img src="img/s02.jpg" alt=""></div>
+        <div class="han"><img src="img/s03.jpg" alt=""></div>
+        <div class="han"><img src="img/s01.jpg" alt=""></div>
+        <div class="han"><img src="img/s02.jpg" alt=""></div>
+        <div class="han"><img src="img/s03.jpg" alt=""></div>
+    </div>
+</section>
+
+
+<footer>
+    할로윈... 
+</footer>
+
+
+<script>
+    $(function(){
+        console.log(($(window).height()-$("#m01").height())/2)
+        $(window).on("scroll", function(){
+            var sct=$(window).scrollTop();
+            $(".han").each(function(index){
+                var this_top=$(this).offset().top;
+                if(sct > 140){
+                    $(".han").eq(index).delay(100*index).animate({opacity:1},300);
+                }       
+            })
+
+        });
+    });
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

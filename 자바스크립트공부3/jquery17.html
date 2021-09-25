@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>텝메뉴02-슬라이드용</title>
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <style>
+        .lunch {margin:300px 0 3000px 0;text-align:center;}
+
+    </style>
+</head>
+<body>
+  <section class="lunch">
+      <img src="img/sin.png">
+   </section>
+<script>
+   $(function(){
+       
+    $(window).on("scroll", sinmovie);
+       
+    function sinmovie() {
+        var sct=$(window).scrollTop();
+        var num=Math.floor(sct);
+        var numR=Math.floor(sct/50)*5;
+        console.log(num);
+        if(sct<1900){
+        $(".lunch img").css({transform:"translateY("+num+"px) rotate("+numR+"deg) "})
+            }
+    }
+       
+   });
+</script>    
+</body>
+</html>

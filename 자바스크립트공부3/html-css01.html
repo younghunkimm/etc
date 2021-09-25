@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>before after 활용</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <style>
+        /*white-space:nowrap;*/
+        .text {width:500px;margin:300px auto;font-size:50px;font-weight:700;position:relative;}
+        .text:after {content:attr(data-text);position:absolute;top:0;left:0;width:0;color:#f00;white-space:nowrap;overflow:hidden;transition:0.9s ease;}
+        .text:hover:after {width:500px;}
+    </style>
+</head>
+<body>
+   <div class="text" data-text="나는 바보다">나는 바보다</div>
+</body>
+</html>

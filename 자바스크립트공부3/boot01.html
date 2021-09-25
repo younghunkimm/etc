@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>부트스트랩 원리</title>
+    <style>
+        * {box-sizing:border-box;}
+        .container {}
+        .row {width:1170px;margin:0 auto;background:#ddd;}
+        .row:after {content:"";display:table;clear:both;}
+        .col-md-3 {float:left;width:25%;padding:0 15px;}
+        .col-md-4 {float:left;width:33.3333333%;padding:0 15px;}
+        .col-md-6 {float:left;width:50%;padding:0 15px;}
+        @media (max-width:768px){
+            .row {width:100%;}
+            [class*="col-"] {float:left;width:100%;padding:0 15px;}
+        }
+    </style>
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-4">a</div>
+        <div class="col-md-4">b</div>
+        <div class="col-md-4">c</div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">b</div>
+        <div class="col-md-6">c</div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">b</div>
+        <div class="col-md-3">c</div>
+        <div class="col-md-3">b</div>
+        <div class="col-md-3">c</div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

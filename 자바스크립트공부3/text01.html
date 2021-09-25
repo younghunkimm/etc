@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>text</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <style>
+        .text {width:200px;height:200px;background:url(img/text09.png);transition:0.3s;}
+        .textall>div {display:inline-block;}
+        .textall.on>div:nth-child(1){background-position: 0 -4200px}
+        .textall.on>div:nth-child(2){background-position: 0 -5800px}
+        .textall.on>div:nth-child(3){background-position: 0 -5400px}
+        .textall.on>div:nth-child(4){background-position: 0 -4800px}
+    </style>
+    <script src="js/jquery-1.12.4.min.js"></script>
+</head>
+<body>
+<div class="textall">
+    <div class="text"></div>
+    <div class="text"></div>
+    <div class="text"></div>
+    <div class="text"></div>
+</div>
+    <ul>
+        <li><a href="#">00</a></li>
+        <li><a href="#">01</a></li>
+        <li><a href="#">02</a></li>
+        <li><a href="#">03</a></li>
+        <li><a href="#">04</a></li>
+        <li><a href="#">05</a></li>
+        <li><a href="#">06</a></li>
+        <li><a href="#">07</a></li>
+        <li><a href="#">08</a></li>
+        <li><a href="#">09</a></li>
+    </ul>
+    <script>
+        $(function(){
+           //$(".text").css({backgroundPositionY:"2400px"});
+            $("ul>li").on("click", function(){
+                //$(".text").css({backgroundPositionY:-200*$(this).index()+2000*$(this).index()});
+                $(".textall").toggleClass("on");
+            });
+        });
+        
+        
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+

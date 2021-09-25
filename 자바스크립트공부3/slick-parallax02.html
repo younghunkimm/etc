@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>슬릭 풀페이지 실습01</title>
+
+    <link href="css/reset.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/slick.css" rel="stylesheet">
+    <script src="js/jquery-1.12.4.min.js"></script>
+
+    <script src="js/slick.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <style>
+        .slick-full figure h2 {position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}
+        .slick-full figure h2 {font-size:50px;font-weight:900;transform:translateY(100px);opacity:0;transition:.5s}
+        .slick-full figure.on h2 {transform:translateY(0);opacity:1}
+        
+        .sound {position:absolute;top:0;left:0;height:0;width:0;overflow:hidden;}
+        
+        header {position:fixed;top:30px;left:30px;z-index:1}
+        nav {position:fixed;top:30px;right:30px;z-index:1}
+
+        .slick-full .pof01 {height:70vh;display:block;position:relative;background:url(img/pbg01.jpg) center center/cover;}
+        .slick-full .pof02 {height:70vh;display:block;position:relative;background:url(img/pbg02.jpg) center center/cover;}
+        .slick-full .pof03 {height:70vh;display:block;position:relative;background:url(img/pbg03.jpg) center center/cover;}
+        .slick-full .pof04 {height:70vh;display:block;position:relative;background:url(img/pbg04.jpg) center center/cover;}
+    </style>
+</head>
+<body>
+
+    
+    <section>
+        <div class="slick-full">
+            <figure class="pof01">
+                <h2>A</h2>
+            </figure>
+            <figure class="pof02">
+                <h2>B</h2>
+            </figure>
+            <figure class="pof03">
+                <h2>C</h2>
+            </figure>
+            <figure class="pof04">
+                <h2>D</h2>
+            </figure>
+        </div>
+        <div class="slideNext">다음</div>
+    </section>
+    
+    <footer>
+        
+    </footer>
+    <script>
+        $(function(){
+            
+            //슬릭슬라이드 옵션주는 건 http://sipossa.pe.kr/j01/slick01.html 참고
+            var bhc=$('.slick-full').slick({
+                //fade:true,
+                autoplay:true,
+                autoplaySpeed:1000,
+                vertical:true,
+                arrows:false,
+                speed:1000,
+                swipe:false,
+            });
+            
+            $(".slideNext").on("click", function(){
+                bhc.slick("slickNext")
+            });
+            
+            $("figure").eq(1).addClass("on")
+            var x=1;
+//            $('.slick-prev').on("click", function(){
+//                //$("figure").animate({top:0,zIndex:2},2);  
+//                x= -1;
+//            });
+//            $('.slick-next').on("click", function(){
+//                x= 1;
+//            });
+            
+            //패럴렉스 구현
+            bhc.on("beforeChange", function(event,slick,currentSlide,nextSlide){ 
+                $("figure").animate({top:0,zIndex:999},1);         
+                $("figure").eq(currentSlide+1).animate({
+                    top:x*500,
+                    zIndex:x,
+                },1000, "linear");
+                console.log(currentSlide)
+            });
+            bhc.on("afterChange", function(event,slick,currentSlide,nextSlide){ 
+                $("figure").eq(currentSlide+1).addClass("on").siblings().removeClass("on");     
+            });       
+
+            
+            
+        });
+    </script>
+</body>
+</html>

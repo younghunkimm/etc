@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>슬릭 풀페이지 실습01</title>
+
+    <link href="css/reset.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/slick.css" rel="stylesheet">
+    <script src="js/jquery-1.12.4.min.js"></script>
+
+    <script src="js/slick.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <style>
+        .slick-full .pof01 {height:50vh;display:block;position:relative;}
+        .slick-full .pof02 {height:50vh;display:block;position:relative;}
+        .slick-full .pof03 {height:50vh;display:block;position:relative;}
+        .slick-full .pof04 {height:50vh;display:block;position:relative;}
+        .slick-full figure h2 {position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}
+        .slick-full figure h2 {font-size:50px;font-weight:900;}
+        
+        .sound {position:absolute;top:0;left:0;height:0;width:0;overflow:hidden;}
+        
+        header {position:fixed;top:30px;left:30px;z-index:1}
+        nav {position:fixed;top:30px;right:30px;z-index:1}
+
+        section {position:relative;width:1600px;margin:100px auto;overflow:hidden;}    
+        .full_bg {position:absolute;top:0;left:0;height:50vh;width:100%;background:url(img/pbg01.jpg) 0% 70%;z-index:-1;}
+    </style>
+</head>
+<body>
+
+    
+    <section>
+        <div class="slick-full">
+            <figure class="pof01">
+                <h2>A</h2>
+            </figure>
+            <figure class="pof02">
+                <h2>B</h2>
+            </figure>
+            <figure class="pof03">
+                <h2>C</h2>
+            </figure>
+            <figure class="pof04">
+                <h2>D</h2>
+            </figure>
+        </div>
+        <div class="full_bg">bg</div>
+    </section>
+    
+    <footer>
+        
+    </footer>
+    <script>
+        $(function(){
+            
+            //슬릭슬라이드 옵션주는 건 http://sipossa.pe.kr/j01/slick01.html 참고
+            var bhc=$('.slick-full').slick({
+                //fade:true,
+                autoplay:true,
+                autoplaySpeed:1500,
+                vertical:true,
+                arrows:false,
+                speed:300,
+            });
+            var x=0;
+            //배경을 움직여보자...
+            bhc.on("beforeChange", function(event,slick,currentSlide,nextSlide){
+                x++;
+                $(".full_bg").animate({backgroundPositionX:100*(x+1) + "%"},1000, "easeOutBounce");
+                if(x==9) {
+                    $("h2").text("고마해라 마이했다 아이가")
+                }
+            })
+
+            
+            
+        });
+    </script>
+</body>
+</html>

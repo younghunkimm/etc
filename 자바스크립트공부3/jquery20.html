@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>마우스 따라다니는 신발3</title>
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <style>
+        body {background:#333;}
+        .lunch {position:fixed;width:10px;height:10px;top:50%;left:50%;transition:0.3s;}
+        .lunch span {display:inline-block;width:10px;height:10px;position:absolute;top:-50%;left:-50%;border-radius:50%;background:rgba(255,255,0,0.9);animation:booo 0.5s infinite}
+        .text {font-size:50px;font-weight:700;color:#fff;text-align:center;line-height:100vh}
+        @keyframes booo {
+            0%{opacity:1;transform:scale(1)}
+            100%{opacity:0;transform:scale(2)}
+        }
+    </style>
+</head>
+<body>
+  <div class="lunch">
+      <span></span>
+   </div>
+   <div class="text">마우스를 따라다니는 도형... 신발을 만들수도</div>
+<script>
+   $(function(){
+       
+    $(window).on("mousemove", mmo);
+    function mmo(e){
+        $(".lunch").css({left:e.pageX,top:e.pageY})
+    }
+       
+   });
+</script>    
+</body>
+</html>

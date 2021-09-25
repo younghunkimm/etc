@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>svg애니메이션</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <style>
+        .gnb {
+        filter:url('#bbq');
+        position:absolute; top:50px;right:200px;}
+
+        .gnb_li{position:absolute;top:0;left:0;width:60px;height:60px;line-height:60px;text-align:center;color:white;transition:1s;}
+        .gnb_li:before {content:"";display:block;position:absolute;width:60px;height:60px;background:crimson;border-radius:60px;top:0;left:0;filter:blur(0.05em);}
+        .gnb_li>a {display:block;position:absolute;width:60px;height:60px;line-height:60px;text-align:center;color:white;top:0;left:0;filter:blur(0px);}
+        svg {width:0;height:0;}
+        .gnb.on .gnb_li:nth-child(1) {top:60px;}
+        .gnb.on .gnb_li:nth-child(2) {top:120px;}
+        .gnb.on .gnb_li:nth-child(3) {top:180px;}
+        .gnb.on .gnb_li:nth-child(4) {top:240px;}
+        .gnb.on .gnb_li:nth-child(5) {top:300px;}
+    </style>
+</head>
+<body>
+ <ul class="gnb">
+    <li class="gnb_li s1">
+        <a href="#">01</a>
+    </li>
+    <li class="gnb_li s2">
+        <a href="#">02</a>
+    </li>
+    <li class="gnb_li s3">
+        <a href="#">03</a>
+    </li>
+    <li class="gnb_li s4">
+        <a href="#">04</a>
+    </li>
+    <li class="gnb_li s5">
+        <a href="#" class="gnb_btn">click</a>
+    </li>
+</ul>
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <defs>
+    <filter id="bbq">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+      <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -7" result="bbq" />
+      <feBlend in="SourceGraphic" in="bbq" operator="atop"/>
+  </filter>
+  </defs>
+</svg>
+<script>
+$(function(){
+    $(".gnb_btn").on("click",function(){
+        //각각의 li에 다른 위치값주기
+        $(".gnb").toggleClass("on");
+    });
+});
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

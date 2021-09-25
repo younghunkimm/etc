@@ -1,0 +1,38 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>동영상 제어하기</title>
+<script src="http://code.jquery.com/jquery-1.12.4.js"></script>
+<style>
+.movie {width:100%;}
+</style>
+</head>
+<body>
+<div style="height:50vh"></div>
+<div>
+<video class="movie" src="movie.mp4" muted></viedo>
+</div>
+<div class="m_play">재생</div>
+<div class="m_stop">정지</div>
+<div style="height:300vh"></div>
+<script>
+$(function(){
+$(".m_play").on("click",function(){
+	$(".movie").trigger("play");
+});
+$(".m_stop").on("click",function(){
+	$(".movie").trigger("pause");
+});
+$(window).on("scroll",function(){
+var sct=$(window).scrollTop();
+	if(sct>100){
+ 		$(".movie").trigger("play");
+	}else{
+		$(".movie").trigger("pause");
+	}
+});
+});
+</script>
+</body>
+</html>

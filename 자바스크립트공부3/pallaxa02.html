@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <style>
+        body {height:300vh;}
+        .pax {width:1200px;height:600px;overflow:hidden;position:fixed;top:200px;left:10px;border:1px solid #ddd;}
+        .pax>span {display:block;width:100%;height:100%;position:absolute;top:0;left:0;}
+        .pax>span:nth-child(1) {background:url(img/bg04.png) no-repeat}
+        .pax>span:nth-child(2) {background:url(img/bg01.png) no-repeat}
+        .pax>span:nth-child(3) {background:url(img/bg02.png) no-repeat}
+        .pax>span:nth-child(4) {background:url(img/bg03.png) no-repeat}
+    </style>
+</head>
+<body>
+  
+<div class="pax">
+    <span data-speed="-30"></span>
+    <span data-speed="10"></span>
+    <span data-speed="5"></span>
+    <span data-speed="3"></span>
+    <span data-speed="30">나는 아프다.</span>
+</div>
+  
+   <script>
+    $(function(){
+        //$(".pax>span").css({backgroundPositionY:-(50-speed)+"px"})
+        $(".pax>span").each(function(){
+            var $this=$(this);
+            var $this_speed=$(this).data("speed");
+            $(window).on("scroll",function(){
+                if($(window).scrollTop()<1500){
+                var sct=$(window).scrollTop();
+                var speed=sct / $this_speed;
+                $this.css({backgroundPositionX:- speed +"px"});
+                }
+            });
+            
+        });
+
+        
+        
+        
+        
+    });
+    </script>
+</body>
+</html>

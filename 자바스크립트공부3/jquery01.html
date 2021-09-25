@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>제이쿼리와 자바스크립트</title>
+    <style>
+        p {color:#369;width:100px;background:#f00;position: relative;}
+    </style>
+    <script src="js/jquery-1.12.4.min.js"></script>
+</head>
+<body>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <button id="btn">나를 클릭해줘</button>
+    <script>
+        $(function(){
+//            $("p").text("바보");
+//            $("p").eq(1).text("천잰데?");
+//            $("p").eq(1).css("color","#f00");
+//            $("p").eq(2).css({color:"#ff0",fontSize:36}); 
+            
+            $("p").text("바보");
+            $("#btn").on("click",function(){                
+                //$("p").css({color:"#fff"});
+                $("p").animate({width:200,left:400},1000)}
+            );
+        });
+    </script>
+</body>
+</html>

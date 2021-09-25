@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>slick03</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/slick.css">
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <style>
+        .main {padding:100px 0;background:#ddd;}
+        .main-slider {}
+        .main-slider img {width:100%;}
+        
+        
+        .main>ul {text-align:center;}
+        .main>ul>li {display:inline-block;margin:20px;}
+        
+
+    </style>
+</head>
+<body>
+   <section class="main">
+     <div class="main-slider">
+          <figure>
+              <img src="img/sns01.jpg">
+          </figure>
+          <figure>
+              <img src="img/sns02.jpg">
+          </figure>
+          <figure>
+              <img src="img/sns03.jpg">
+          </figure>
+          <figure>
+              <img src="img/sns04.jpg">
+          </figure>
+          <figure>
+              <img src="img/sns05.jpg">
+          </figure>
+          <figure>
+              <img src="img/sns01.jpg">
+          </figure>
+          <figure>
+              <img src="img/sns02.jpg">
+          </figure>
+          <figure>
+              <img src="img/sns03.jpg">
+          </figure>
+          <figure>
+              <img src="img/sns04.jpg">
+          </figure>
+          <figure>
+              <img src="img/sns05.jpg">
+          </figure>
+      </div>  
+    <ul>
+        <li class="prev">이전</li>
+        <li class="next">다음</li>
+        <li class="pause">멈춤</li>
+        <li class="play">재생</li>
+        <li class="first">1번 슬라이드</li>
+        <li class="count"></li>
+    </ul>
+    <div class="movie">
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+    </div>     
+   </section>
+   
+    <script>
+        $(function(){
+            
+            $(".main-slider").on('init reInit afterChange', function(event, slick, currentSlide, nextSlide){
+                //console.log(nextSlide);
+                var i = (currentSlide ? currentSlide : 0) + 1;
+                $(".count").text(i +"/"+slick.slideCount);
+            });
+            $(".main-slider").slick({
+                autoplay:true,
+                autoplaySpeed:2000,
+                slidesToShow:6,
+                slidesToScroll:1,
+                pauseOnHover:false,
+                pauseOnFocus:false,
+                //dots:true,
+                arrows:false,
+                //vertical:true,
+                //verticalSwiping:true,
+                speed:500,
+            });
+            
+            $(".main-slider").on("mousemove", function(e){
+                  if (e.pageX < $(this).width() / 2) {
+                    $(".main-slider").slick("slickPrev");
+                    } else {
+                    $(".main-slider").slick("slickNext");
+                    }
+            })
+            
+            
+            $(".prev").on("click",function(){
+                 $(".main-slider").slick("slickPrev");
+            });
+            $(".next").on("click",function(){
+                 $(".main-slider").slick("slickNext");
+            });  
+            $(".pause").on("click",function(){
+                 $(".main-slider").slick("slickPause");
+            });   
+            $(".play").on("click",function(){
+                 $(".main-slider").slick("slickPlay");
+            }); 
+            
+            $(".first").on("click",function(){
+                 $(".main-slider").slick("slickGoTo", 0);
+            });  
+            
+
+            
+            
+        })
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>마우스 따라다니는 신발나비</title>
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <style>
+        body {background:#f7f7f7;cursor:none--;}
+        .lunch {position:fixed;width:70px;height:70px;top:50%;left:50%;transition: 1s;}
+        .lunch img {width:100%;position:absolute;top:-50%;left:-50%;animation:navi 0.5s infinite;}
+        
+        .text {font-size:30px;font-weight:100;color:#333;text-align:center;line-height:100vh}
+        @keyframes navi{
+            0%{transform:scaleX(0)}
+            100%{transform:scaleX(1)}
+        }
+    </style>
+</head>
+<body>
+  <div class="lunch">
+      <img src="img/navi.png">
+   </div>
+   <div class="text">마우스를 따라다니는 나비 자기 멋대로 날다.</div>
+<script>
+   $(function(){
+       
+    $(window).on("mousemove", mmo);
+    function mmo(e){
+        var x=e.pageX;
+        var y=e.pageY;
+        var r=y/3;
+        $(".lunch").css({left:x,top:y,transform:"rotate("+ x +"deg) scale("+ (0.5+ x/1000) +")"})
+    }
+       
+   });
+</script>    
+</body>
+</html>

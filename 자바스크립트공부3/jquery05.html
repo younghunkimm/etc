@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="js/jquery-1.12.4.min.js"></script>
+</head>
+<body>
+   <ul class="mevent">
+       <li>mmm01</li>
+       <li>mmm01</li>
+       <li>mmm01</li>
+       <li>mmm01</li>
+   </ul>
+<script>
+   $(function(){
+       
+       
+       
+       function ddd(){
+           $("ul>li").css({color:"#369"})
+           $(this).css({color:"#f00"})
+       }
+       function meventMo(){
+           $("ul>li").css({color:"#f00"})
+           $(this).css({color:"#ddd"})
+       }
+       //ddd();
+       $("ul>li").on({
+           click:ddd,
+           mouseenter:meventMo,
+           mouseleave:function(){$(this).text("무정한 놈")}
+        });
+       
+       
+       
+       
+       
+   });
+</script>    
+</body>
+</html>

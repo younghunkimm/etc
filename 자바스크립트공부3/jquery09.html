@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>텝메뉴01-일반적인 거</title>
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <style>
+        .lunch .menu {background:#369;}
+        .lunch .menu li {background:#369;}
+        .lunch .menu li.on {background:#fff;}
+        
+        .lunch .menu li {display:inline-block;}
+        .lunch .menu-tang>div {display:none;}
+        .lunch .menu-tang>div:nth-child(1) {display:block;}
+    </style>
+</head>
+<body>
+  <section class="lunch">
+       <ul class="menu">
+           <li>메뉴01</li>
+           <li>메뉴02</li>
+           <li>메뉴03</li>
+           <li>메뉴04</li>
+       </ul>
+       <div class="menu-tang">
+           <div>닭도리탕</div>
+           <div>감자탕</div>
+           <div>설렁탕</div>
+           <div>쏘가리탕</div>
+       </div>
+   </section>
+<script>
+   $(function(){
+       
+       
+       $(".menu li").eq(0).addClass("on");
+       $(".menu li").on("click", function(){
+           var i=$(this).index();
+//           console.log(i);
+//           $(".menu-tang>div").hide();
+//           $(".menu-tang>div").eq(i).show();
+           $(".menu-tang>div").eq(i).show().siblings().hide();
+           $(this).addClass("on").siblings().removeClass("on");
+       });
+       
+       
+       
+   });
+</script>    
+</body>
+</html>

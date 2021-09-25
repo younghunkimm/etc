@@ -1,0 +1,33 @@
+﻿<!doctype html>
+<html>
+<head>
+<title>텍스트애니메이션을 만들어보자</title>
+<script src="http://code.jquery.com/jquery-1.12.4.js"></script>
+<style>
+span {display:inline-block;position:relative;left:100px;opacity:0;font-size:60px;font-weight:900;top:-100px;line-height:100px;}
+</style>
+</head>
+<body>
+
+<p class="textall">my&nbsp;dream</p>
+<script>
+$(function(){
+
+var textCase=$(".textall");
+var textAll=$(".textall").text();
+var texeEach=textAll.split("");
+
+var ele=[];
+$(texeEach).each(function(index){
+	var inHTml="<span>"+$(texeEach).get(index)+"</span>"
+	ele.push($(inHTml).get(0));
+	textCase.html(ele);
+	//textCase.append(ele);
+	textCase.children().delay(index*200).animate({top:0,opacity:1,fontSize:60},300);
+});
+
+
+});
+</script>
+</body>
+</html>
