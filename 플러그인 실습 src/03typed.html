@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>타이핑텍스트</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/typed_cdn.js"></script>
+    <style>
+        .main {height:300px;background:#ddd;text-align:center;font-weight:700;font-size:50px;}
+        .intro_type {line-height:300px;}
+        .intro_type b {color:#f0a042;}
+/*        .typed-cursor {color:#F00!important;}*/
+        .typed-cursor:after {content:"\e981";font-family:xeicon;}
+    </style>
+</head>
+<body>
+   <section class="main">
+         <span class="intro_type"></span>
+<!-- <i class="xi-subdirectory-arrow"></i> -->
+   </section>
+   
+    <script>
+        $(function(){
+            //https://mattboldt.github.io/typed.js            
+            var typed2 = new Typed('.intro_type', {
+                strings: ['원하는 글씨를', '<b>나는바보다</b> 로', '출력해 줍니다.'],
+                typeSpeed: 100,
+                backSpeed: 100,
+                fadeOut: true,
+                //smartBackspace: true,
+                cursorChar: '',
+                loop: true
+            });
+        })
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

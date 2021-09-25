@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>프로그래스바</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/slick.css">
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/circle-progress.min.js"></script>
+    <style>
+        body {height:300vh}
+        .main {padding:100px 0;background:#ddd;text-align:center;}
+        .main>div {display:inline-block;}
+        .main2 {padding:100px 0;background:#ddd;text-align:center;}
+        .main2>div {display:inline-block;}
+        .progress {width:100px;height:100px;text-align:center;font-size:30px;font-weight:700;position:relative;}
+        .progress span {position:absolute;top:0;left:0;width:100px;height:100px;line-height:100px;}
+    </style>
+</head>
+<body>
+   <section class="main">
+     <div class="progress p01"><span>35%</span></div>
+     <div class="progress p02"><span>35%</span></div>
+     <div class="progress p03"><span>35%</span></div>
+   </section>
+    <section class="main2">
+     <div class="progress p01"><span>35%</span></div>
+     <div class="progress p02"><span>35%</span></div>
+     <div class="progress p03"><span>35%</span></div>
+   </section>
+    <script>
+        $(function(){
+            //http://kottenator.github.io/jquery-circle-progress/
+            //https://github.com/kottenator/jquery-circle-progress
+            
+            $('.main .progress.p01').circleProgress({
+                value: 0.35,
+                //animation: false,
+                fill: {gradient: ['#ff1e41', '#ff0']}
+            });
+            
+           $('.main .progress.p02').circleProgress({
+               value: 0.6,
+               //size: 80,
+               lineCap:"round",
+               fill: {gradient: ['#ff1e41', '#ff0']}
+           })
+           .on('circle-animation-progress', function(event, progress) {
+                $(this).find('span').html(Math.round(60 * progress) + '<i>%</i>');
+           });
+            
+            
+            
+          $('.main .progress.p03').circleProgress({
+               value: 0.8,
+               //size: 80,
+               lineCap:"round",
+              thickness:"20",
+               fill: {gradient: ['#ff1e41', '#ff0']}
+           })
+           .on('circle-animation-progress', function(event, progress) {
+                $(this).find('span').html(Math.round(80 * progress) + '<i>%</i>');
+           });
+            
+         function pG() {
+             $('.main2 .progress.p01').circleProgress({
+                value: 0.35,
+                //animation: false,
+                fill: {gradient: ['#ff1e41', '#ff0']}
+            });
+            
+           $('.main2 .progress.p02').circleProgress({
+               value: 0.6,
+               //size: 80,
+               lineCap:"round",
+               fill: {gradient: ['#ff1e41', '#ff0']}
+           })
+           .on('circle-animation-progress', function(event, progress) {
+                $(this).find('span').html(Math.round(60 * progress) + '<i>%</i>');
+           });
+            
+            
+            
+          $('.main2 .progress.p03').circleProgress({
+               value: 0.8,
+               //size: 80,
+               lineCap:"round",
+              thickness:"20",
+               fill: {gradient: ['#ff1e41', '#ff0']}
+           })
+           .on('circle-animation-progress', function(event, progress) {
+                $(this).find('span').html(Math.round(80 * progress) + '<i>%</i>');
+           });
+         }
+        function pG0() {
+             $('.main2 .progress').circleProgress({
+               value: 0,
+               //size: 80,
+               //lineCap:"round",
+               //thickness:"20",
+               //fill: {gradient: ['#ff1e41', '#ff0']}
+           })
+           .on('circle-animation-progress', function(event, progress) {
+                $(this).find('span').html(Math.round(0 * progress) + '<i>%</i>');
+           });
+         }       
+        var cu0=true;
+            $(window).on("scroll", function(){
+               
+                if($(window).scrollTop() > 200){
+                    if(cu0){
+                        pG();
+                        cu0=false;
+                    }                        
+                    }else{
+                        pG0()
+                        cu0=true;
+                    }
+            })
+         
+            
+            
+            
+ ////////////////////
+        });
+
+                     
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

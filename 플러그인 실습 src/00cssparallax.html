@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>간단한 background parallax</title>
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <style>
+        * {margin:0;padding:0;}
+        /* css로 배경 고장한 parallax */
+        .content {height:100vh;background-size:cover;background-attachment: fixed;}
+        .content h2 {font-size:50px;font-weight:bold;text-align:center;line-height:100vh;color:#fff;text-shadow:1px 1px 0 #000}
+        .m01 {background-image: url(img/bbg01.jpg)}
+        .m02 {background-image: url(img/bbg02.jpg)}
+        .m03 {background-image: url(img/bbg03.jpg)}
+        .circle {width:300px;height:300px;border-radius:50%;background:#fff;border:3px solid #ddd;position:fixed;top:100px;right:100px;z-index:1;}
+        .circle:after {content:"";display:block;width:30px;height:30px;background:#333;border-radius:50%;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}
+        .circle>span:nth-child(1) {display:block;width:4px;height:110px;background:#f00;position:absolute;top:40px;left:calc(50% - 2px);transform-origin:bottom center;}
+        .circle>span:nth-child(2) {display:block;width:10px;height:80px;background:#ff0;position:absolute;top:50px;left:calc(50% - 5px);transform-origin:bottom;}
+        .num {position:absolute;left:50%;top:80%;transform:translateX(-50%)}
+    </style>
+</head>
+<body>
+    <section class="content m01">
+        <h2>The kid is not my son</h2>
+    </section>
+    <section class="content m02">
+        <h2>The kid is not my son</h2>
+    </section>
+    <section class="content m03">
+        <h2>The kid is not my son</h2>
+    </section>
+    <div class="circle">
+        <span></span>
+        <span></span>
+        <span class="num"></span>
+    </div>
+    <script>
+        $(function(){
+            //Math.floor() 는 소숫점 아래를 떼냅니다.
+            // /는 나누기 %는 나눈 나머지값
+            $(window).on("scroll", function(){
+                var sct=$(window).scrollTop();
+                $(".circle>span").eq(0).css({
+                    transform:"rotate(" + sct + "deg)",
+                });
+                $(".circle>span").eq(1).css({
+                    transform:"rotate(" + sct/60 + "deg)",
+                });
+                $(".num").text(Math.floor(sct/360) + "시" + Math.floor((sct/6)%60) +"분" );
+            })
+        })
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

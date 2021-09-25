@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>aos 스크롤이벤트</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/aos.css">
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/aos.js"></script>
+    <style>
+        h1 {text-align: center;}
+        .main {padding:1000px 0;background:#ddd;}
+        .main img {width:100%;height:500px;}
+        .main-s {width:1200px;margin:0 auto;}
+        .main-s>* {float:left;width:33.33333%;padding:0 15px;}
+    </style>
+</head>
+<body>
+  <h1>스크롤해보세요.</h1>
+   <section class="main">
+     <div class="main-s scrollme" >
+          <figure data-aos="fade-up" data-aos-duration="1000">
+              <img src="img/m01.jpg" alt="">
+              <h3>나는 바보다. 01 </h3>
+          </figure>
+          <figure data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
+              <img src="img/m02.jpg" alt="">
+              <h3>나는 바보다. 02 </h3>
+          </figure>
+          <figure data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000">
+              <img src="img/m03.jpg" alt="">
+              <h3>나는 바보다. 03</h3>
+          </figure>
+      </div>     
+   </section>
+   
+    <script>
+        $(function(){
+            //https://michalsnik.github.io/aos/
+            AOS.init();
+        })
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

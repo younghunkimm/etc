@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>숫자 카운트</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/slick.css">
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/waypoints.min.js"></script>
+    <script src="js/jquery.counterup.min.js"></script>
+    <style>
+        body {height:300vh}
+        .main {padding:100px 0;background:#ddd;}
+        .countup, .countup2 {text-align:center;font-size:50px;font-weight:700;}
+    </style>
+</head>
+<body>
+   <section class="main">
+     <div class="countup">33.333</div>
+   </section>
+    <section class="main">
+     <div class="countup2">33.333</div>
+   </section>
+    <script>
+        $(function(){
+            //https://github.com/bfintal/Counter-Up
+            //기본세팅 $(".countup").counterUp();
+            $(".main .countup").counterUp({
+                delay:10,
+                time:1000,
+            });
+            
+            function cU(){
+                    $('.countup2').text('33.333');
+                    $(".countup2").counterUp({
+                        delay:50,
+                        time:2000,
+                    });                  
+            }
+            
+
+            //스크롤 이벤트
+             var cu0=0;
+            $(window).on("scroll", function(){
+               
+                if($(window).scrollTop() > 200){
+                    if(cu0!=1){
+                        cU();
+                        cu0=1;
+                    }                        
+                }else{
+                   //$('.countup2').text('33.333'); 
+                    cu0=0;
+                }
+            })
+        })
+
+                     
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

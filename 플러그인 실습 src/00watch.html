@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>간단한 background parallax</title>
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <style>
+        * {margin:0;padding:0;}
+        /* css로 배경 고장한 parallax */
+        .content {height:100vh;background-size:cover;background-attachment: fixed;}
+        .content h2 {font-size:50px;font-weight:bold;text-align:center;line-height:100vh;color:#fff;text-shadow:1px 1px 0 #000}
+        .m01 {background-image: url(img/bbg01.jpg)}
+        .m02 {background-image: url(img/bbg02.jpg)}
+        .m03 {background-image: url(img/bbg03.jpg)}
+        .circle {width:300px;height:300px;border-radius:50%;background:#fff;border:3px solid #ddd;position:fixed;top:100px;right:100px;z-index:1;}
+        .circle:after {content:"";display:block;width:30px;height:30px;background:#333;border-radius:50%;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}
+        .circle>span:nth-child(1) {display:block;width:4px;height:110px;background:#f00;position:absolute;top:40px;left:calc(50% - 2px);transform-origin:bottom center;}
+        .circle>span:nth-child(2) {display:block;width:4px;height:110px;background:#369;position:absolute;top:40px;left:calc(50% - 2px);transform-origin:bottom center;}
+        .circle>span:nth-child(3) {display:block;width:2px;height:110px;background:#333;position:absolute;top:40px;left:calc(50% - 1px);transform-origin:bottom center;}
+        .num {position:absolute;left:50%;top:80%;transform:translateX(-50%)}
+    </style>
+</head>
+<body>
+    <section class="content m01">
+        <h2>The kid is not my son</h2>
+    </section>
+    <section class="content m02">
+        <h2>The kid is not my son</h2>
+    </section>
+    <section class="content m03">
+        <h2>The kid is not my son</h2>
+    </section>
+    <div class="circle">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span class="num"></span>
+    </div>
+    <script>
+        $(function(){
+
+            //new Date();   현재시간 알아오기
+             
+            function watch(){
+            let today = new Date();   
+            let hours = today.getHours(); // 시
+            let minutes = today.getMinutes();  // 분
+            let seconds = today.getSeconds();  // 초
+                $(".circle>span").eq(0).css({
+                    transform:"rotate(" + hours*30 + "deg)",
+                });
+                $(".circle>span").eq(1).css({
+                    transform:"rotate(" + minutes*6 + "deg)",
+                });
+                $(".circle>span").eq(2).css({
+                    transform:"rotate(" + seconds*6 + "deg)",
+                });
+                $(".num").text(hours + "시" + minutes +"분" + seconds + "초");                    
+            }
+            
+            setInterval(watch,1000)
+
+        })
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
