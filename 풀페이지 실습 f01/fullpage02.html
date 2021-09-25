@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>풀페이지만들기02</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/fullpage.css">
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/fullpage.js"></script>
+    <style>
+        .section {background:#333;}
+        
+        .section .text{text-align:center;font-size:50px;font-weight:700;color:#fff;opacity:0;transition:0.5s}
+        .section.on .text{opacity:1;transform:translateY(-100px)}
+        .text_s{text-align:center;font-size:50px;font-weight:700;color:#fff;transition:0.5s}
+        
+    </style>
+</head>
+<body>
+<div id="fullpage">
+   <section id="m01" class="section">
+     <div class="text">1</div>
+   </section>
+    <section id="m02" class="section">
+        <div class="slide text_s"> Slide 1 </div>
+        <div class="slide text_s"> Slide 2 </div>
+        <div class="slide text_s"> Slide 3 </div>
+        <div class="slide text_s"> Slide 4 </div>
+   </section>
+   <section id="m03"  class="section">
+     <div class="text">3</div>
+   </section>
+</div>
+    <script>
+        $(function(){
+            var $this=$(".section");
+            $this.eq(0).addClass("on");
+            $("#fullpage").fullpage({
+                licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE',
+                afterLoad: function(origin,destination){
+                    console.log(destination.index);
+                    $this.eq(destination.index).addClass("on").siblings().removeClass("on");
+                },
+            }); 
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

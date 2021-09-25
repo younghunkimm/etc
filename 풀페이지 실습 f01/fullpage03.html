@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>풀페이지만들기03</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/fullpage.css">
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/fullpage.js"></script>
+    <style>
+        .section {background:#333;}
+        
+        .section .text{text-align:center;font-size:50px;font-weight:700;color:#fff;opacity:0;transition:0.5s}
+        .section.on .text{opacity:1;transform:translateY(-100px)}
+        .slide.text_s{text-align:center;font-size:50px;font-weight:700;color:#fff;opacity:0;transition:0.5s}
+        .slide.on.text_s{opacity:1;transform:translateY(-100px)}
+        
+    </style>
+</head>
+<body>
+<span></span>
+<div id="fullpage">
+   <section id="m01" class="section">
+     <div class="text">1</div>
+   </section>
+    <section id="slide" class="section">
+        <div class="slide text_s"> Slide 1 </div>
+        <div class="slide text_s"> Slide 2 </div>
+        <div class="slide text_s"> Slide 3 </div>
+        <div class="slide text_s"> Slide 4 </div>
+   </section>
+   <section id="m03"  class="section">
+     <div class="text">3</div>
+   </section>
+</div>
+    <script>
+        $(function(){
+            var $this=$(".section");
+            var $this_s=$(".slide");
+            $this.eq(0).addClass("on");
+            $("#fullpage").fullpage({
+                
+                
+                licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE',
+                
+                controlArrows: false, //슬라이드 화살표 숨김
+                loopHorizontal: false, //슬라이드 반복 멈춤
+                afterRender:function(){
+                    $this.eq(0).addClass("on");
+                    $this_s.eq(0).addClass("on");
+                },              
+                
+                afterLoad: function(origin,destination){
+                    //console.log(destination.index);
+                    $this.eq(destination.index).addClass("on").siblings().removeClass("on");
+                },
+                
+                afterSlideLoad: function(section, origin, destination, direction) {
+                    $this_s.eq(destination.index).addClass("on").siblings().removeClass("on");
+                }
+                
+                
+            });
+            
+            //슬라이드에 훨이벤트 달기...
+            $("#slide").on("mousewheel", function(e){
+                if(e.originalEvent.wheelDelta /120 > 0) {
+                    fullpage_api.moveSlideLeft();
+                }
+                else{
+                    fullpage_api.moveSlideRight();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

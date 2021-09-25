@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>풀페이지만들기05-페럴렉스시험해보기</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/fullpage.css">
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/fullpage.js"></script>
+    <style>
+        body {background:transparent !important;}
+        .section {background:transparent;}
+        .section .bgc01 {background:url(img/bbg01.jpg) no-repeat center top;background-size:cover;width:100%;height:100vh;position:absolute;top:0;left:0;}       
+        .section .bgc02 {background:url(img/bbg02.jpg) no-repeat center top;background-size:cover;width:100%;height:100vh;position:absolute;top:0;left:0;}
+        .section .bgc03 {background:url(img/bbg03.jpg) no-repeat center top;background-size:cover;width:100%;height:100vh;position:absolute;top:0;left:0;}
+
+        .section .text{text-align:center;font-size:50px;font-weight:700;color:#fff;opacity:0;position:relative;}
+        .section.on .text{animation:ani 1s both}
+        .slide.text_s{text-align:center;font-size:50px;font-weight:700;color:#fff;opacity:0;transition:0.5s}
+        .slide.on.text_s{opacity:1;transform:translateY(-100px);transition:0.5s}
+        
+        @keyframes ani{
+            0%{opacity:0;transform:translateY(0);}
+            100%{opacity:1;transform:translateY(-100px);}
+        }
+        
+    </style>
+</head>
+<body>
+<div id="fullpage">
+    <section id="m01"  class="section">
+     <div class="bgc01 pra"></div>
+     <div class="text">1</div>
+   </section>
+    <section id="m02"  class="section">
+    <div class="bgc02 pra"></div>
+     <div class="text">2</div>
+   </section>
+   <section id="m03"  class="section">
+    <div class="bgc03 pra"></div>
+     <div class="text">3</div>
+   </section>
+    <section id="m04"  class="section">
+     <div class="bgc01 pra"></div>
+     <div class="text">4</div>
+   </section>
+    <section id="m05"  class="section">
+    <div class="bgc02 pra"></div>
+     <div class="text">5</div>
+   </section>
+   <section id="m06"  class="section">
+    <div class="bgc03 pra"></div>
+     <div class="text">6</div>
+   </section>
+</div>
+    <script>
+        $(function(){
+            var sNap = false; 
+            var $this=$(".section");
+            $this.eq(0).addClass("on");
+            $("#fullpage").fullpage({
+                licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE',
+                scrollingSpeed: 800,
+                afterLoad: function(origin,destination){
+                    sNap = false;
+                    $this.eq(destination.index).addClass("on").siblings().removeClass("on");
+                },
+                onLeave: function(){
+                     sNap = true; 
+                },
+            }); 
+            
+            
+            //슬라이드에 페럴렉스 구현...
+
+            $(".section").on("mousewheel", function(e){   
+                if(sNap) return false;
+                if(e.originalEvent.wheelDelta /120 < 0){
+                    $(this).find(".pra").css({
+                        transform:"translateY("+ (500) + "px)",
+                        transition:1+"s"
+                    })
+                   }else{
+                       $(".pra").css({
+                           backgroundPositionY:0,
+                           transform:"translateY("+ 0 + "px)",
+                           transition:1+"s"
+                       });
+                   }
+                //마지막에서 멈춤
+                var pl=$(".section").length;
+                var pli=$(this).index();
+                if(pl-1 == pli){
+                    console.log(pl,pli);
+                    $(".pra").css({transform:"translateY("+ 0 + "px)",transition:1+"s"})
+                }
+
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

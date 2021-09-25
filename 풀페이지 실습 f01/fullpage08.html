@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>풀페이지만들기00-기본세팅</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/fullpage.css">
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/fullpage.js"></script>
+    <style>
+        .section {background:#333;}
+        .text{text-align:center;font-size:50px;font-weight:700;color:#fff;}
+    </style>
+</head>
+<body>
+<div id="fullpage">
+   <section class="section">
+     <div class="text">1</div>
+   </section>
+   <section class="section">
+     <div class="text">2</div>
+   </section>
+   <section class="section">
+     <div class="text">3</div>
+   </section>
+   <section class="section">
+     <div class="text">4</div>
+   </section>
+   <section class="section">
+     <div class="text">5</div>
+   </section>
+   <section class="section active">
+     <div class="text">6</div>
+   </section>
+</div>
+    <script>
+        $(function(){
+            $("#fullpage").fullpage({
+                licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE',
+            }); 
+            
+            
+            //역방향 풀페이지
+            $("#fullpage").on("mousewheel", function(e){
+                if(e.originalEvent.wheelDelta /120 < 0) {
+                    fullpage_api.moveSectionUp();
+                }
+                else{
+                    fullpage_api.moveSectionDown();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

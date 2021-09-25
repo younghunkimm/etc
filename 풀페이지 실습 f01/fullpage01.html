@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>풀페이지만들기01</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/fullpage.css">
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/fullpage.js"></script>
+    <style>
+        .section {background:#333;}
+        .text{text-align:center;font-size:50px;font-weight:700;color:#fff;}
+    </style>
+</head>
+<body>
+<div id="fullpage">
+   <section class="section">
+     <div class="text">1</div>
+   </section>
+    <section id="slide" class="section">
+        <div class="slide text"> Slide 1 </div>
+        <div class="slide text"> Slide 2 </div>
+        <div class="slide text"> Slide 3 </div>
+        <div class="slide text"> Slide 4 </div>
+   </section>
+   <section class="section">
+     <div class="text">3</div>
+   </section>
+</div>
+    <script>
+        $(function(){
+            $("#fullpage").fullpage({
+                licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE',
+                controlArrows: false, //슬라이드 화살표 숨김
+                loopHorizontal: false, //슬라이드 반복 멈춤
+            });
+            
+            //슬라이드에 훨 이벤트 넣기
+            $("#slide").on("mousewheel", function(e){
+                if(e.originalEvent.wheelDelta /120 > 0) {
+                    fullpage_api.moveSlideLeft();
+                }
+                else{
+                    fullpage_api.moveSlideRight();
+                }
+            });
+            
+            //클릭시 스크롤 멈춤
+            $(".sg-btn").on("click",function(){
+                fullpage_api.setAllowScrolling(false);
+            });
+            $(".close-btn").on("click",function(){
+                fullpage_api.setAllowScrolling(true);
+            });
+        });                     
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
