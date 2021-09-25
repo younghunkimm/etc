@@ -1,0 +1,37 @@
+<?php
+    class Todo {
+
+        private $connection_string ;
+
+        public function __construct() {
+            // connection code. Connection is okay. 
+        }
+
+        public function fetchTodo() {
+            $sql = "SELECT * FROM todo ";
+            $result = mysqli_query($this->connection_string, $sql);
+
+            // add this line
+            return $result ? $result->fetch_all(MYSQLI_ASSOC) : [];
+        }
+    }
+
+    // tell whoever requested this API that we're going to send JSON data
+    header("Content-Type: application/json");
+
+    $todo = new Todo;
+
+    // output whatever fetchTodo() returns as JSON
+    echo json_encode($todo->fetchTodo());
+?>
+
+
+import axios from 'axios';
+
+axios.get('https://my-json-server.typicode.com/zofqofhtltm8015/fs/user').then((Response)=>{
+    console.log(Response.data);
+}).catch((Error)=>{
+    console.log(Error);
+})
+
+

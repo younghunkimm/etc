@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>요리하기 변수 함수</title>
+</head>
+<body>
+    <div id="눌러줘">
+        나를 눌러줘!
+    </div>
+    <div id="눌러줘2">
+        나를 눌러줘! 2
+    </div>
+    <script>
+        //함수공부
+        
+        const 누르기=document.querySelector("#눌러줘");
+        누르기.addEventListener("click", function(){
+            this.innerHTML=라면("라면","스프","계란") + "들어간 라면 끓였어유~";
+        });
+        const 누르기2=document.querySelector("#눌러줘2");
+        누르기2.addEventListener("click", function(){
+            this.innerHTML=라면("라면","스프","파") + "들어간 라면 끓였어유~";
+        });
+
+
+        function 라면(재료1,재료2,양념){
+            let 긇인라면=`${재료1} ${재료2} ${양념} `;
+            return 긇인라면;
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>요리하기 변수 함수</title>
+</head>
+<body>
+    <div id="진라면">
+        진라면 나라와
+    </div>
+    <div id="신라면">
+        신라면 나라와
+    </div>
+    <div id="짜빠게티">
+        짜빠게티 나라와
+    </div>
+
+    <script>
+        //라면 자판기 만들기
+        const 라면자판기=class{
+            constructor(면,스프,계란) {
+                this.면=면;
+                this.스프=스프;
+                this.계란=계란;
+            }
+            끓이기(){
+                return `${this.면} ${this.스프}  ${this.계란} 들어간 라면 끓였어유~`;
+            }
+        }
+        let 진라면 = new 라면자판기("진라면","진라면스프","계란두개");       
+        let 신라면 = new 라면자판기("신라면","신라면스프","계란새개");      
+        let 짜빠게티 = new 라면자판기("짜빠게티면","짜빠게티스프","계란네개"); 
+
+        const 진라면누르기=document.querySelector("#진라면");
+        const 신라면누르기=document.querySelector("#신라면");
+        const 짜빠게티누르기=document.querySelector("#짜빠게티");
+
+
+        진라면누르기.addEventListener("click", function(){
+            this.innerHTML=진라면.끓이기();
+        } );
+        신라면누르기.addEventListener("click", function(){
+            this.innerHTML=신라면.끓이기();
+        } );
+        짜빠게티누르기.addEventListener("click", function(){
+            this.innerHTML=짜빠게티.끓이기();
+        } );
+
+    </script>
+</body>
+</html>
