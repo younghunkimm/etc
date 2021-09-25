@@ -1,0 +1,91 @@
+html {font-size:20px;}
+body {font-size:0.8rem;font-weight:300;color:#222;min-width:1900px;overflow:hidden;}
+#Wrap {width:100%;min-width:1900px;overflow:hidden;position:relative;}
+
+
+header {position:absolute;top:0;left:0;background:url(img/bg01.png);height:100vh;width:25rem;padding:5rem 3rem;border-right:1px solid #ddd;box-shadow:0.25rem 0 0 rgba(0,0,0,0.1);z-index:999;}
+header h1 {font-size:1.4rem;font-weight:700;margin-bottom:2rem;}
+
+
+
+
+
+header .main-img {margin-top:2rem;}
+header .main-img figure {border-radius:2.5rem;overflow:hidden;}
+header .main-img img {width:100%;}
+
+header .babo {display:block;width:4rem;height:1rem;background:#333;position:absolute;top:10rem;right:-2rem;}
+
+header .gooey {filter:url('#bbq');position:absolute;top:3rem;right:2.5rem;animation:ssgooey 3s infinite linear}
+
+header .gooey>span {display:block;width:2rem;height:2rem;border-radius:50%;background:tomato;position:absolute;top:0;right:0;}
+
+header .gooey>span:nth-child(1) {animation:ssgooey01 2s infinite}
+header .gooey>span:nth-child(2) {animation:ssgooey02 3s infinite}
+header .gooey>span:nth-child(3) {width:3rem;height:3rem;}
+
+@keyframes ssgooey01 {
+    0%{right:0;}
+    50%{right:4rem;}
+    100%{right:0;}
+}
+
+@keyframes ssgooey02 {
+    0%{right:0;}
+    50%{right:-4rem;}
+    100%{right:0;}
+}
+
+@keyframes ssgooey {
+    0%{transform: rotate(0);}
+    100%{transform: rotate(360deg);}
+}
+
+
+
+
+main {margin:0 15rem 0 25rem;background:tomato;}
+
+main .section h2{font-size:2rem;font-weight:700;color:#fff;text-align:center;transform:translateY(2rem);opacity:0;}
+main .section.on h2{transform:translateY(0);opacity:1;transition:1s 0.3s;}
+
+
+main .gooey {filter:url('#bbq');width:30rem;height:10rem;margin:0 auto;position:relative;}
+main .gooey>span {display:block;width:6rem;height:6rem;background:#fff;border-radius: 50%;position:absolute;top:2rem;left:0;}
+main .gooey>span:nth-child(1) {width:12rem;height:12rem;}
+main .section.on .gooey>span:nth-child(2) {top:6rem;animation:gooey 3s linear infinite;}
+
+
+@keyframes gooey {
+    0%{left:0;opacity:1;}
+    75%{left:75%;opacity:1;}
+    100%{left:100%;opacity:0;}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+footer {position:absolute;top:0;right:0;background:url(img/bg02.png);height:100vh;width:15rem;padding:5rem 3rem;border-left:1px solid #ddd;box-shadow:-0.25rem 0 0 rgba(0,0,0,0.1);}
+
+
+
+
+
+
+
+
+
+
+

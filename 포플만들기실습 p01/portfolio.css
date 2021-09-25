@@ -1,0 +1,47 @@
+html {font-size:20px;}
+body {font-size:0.8rem;font-weight:300;}
+header {position:fixed;top:2rem;left:2rem;width:calc(100% - 4rem);z-index:999;}
+header i {position:absolute;top:0;right:0;}
+nav {position:fixed;top:50%;left:2rem;transform:translateY(-50%);}
+nav li {position:relative;}
+nav li a {display:block;text-indent:-999px;width:3rem;line-height:1rem;}
+nav li:after {content:"";display:block;width:1rem;height:0.1rem;background:#333;position:absolute;top:50%;left:0;transform:translateY(-50%);transition:0.5s;z-index:-1;}
+nav li.on:after {width:2rem;}
+footer {position:fixed;bottom:2rem;left:2rem;width:100%;z-index:999;}
+
+.women {position:fixed;top:4rem;right:4rem;width:35rem;height:40rem;border-radius:2rem;overflow:hidden;transition:0.5s;z-index:888;}
+.women.on {width:10rem;height:10rem;border-radius:5rem;}
+.women img {width:120%;filter: grayscale(0);transition:4s;}
+.women.on img {filter: grayscale(1);}
+
+.women+.num {opacity:0;position:absolute;top:6rem;right:6rem;font-size:5rem;font-weight:700;color:#fff;transition:1s;z-index:999;}
+.women.on+.num {opacity:1;}
+
+.section:nth-child(even) {background-color:#f2f2f2}
+.section {background-image:url(/img/bg02.png)}
+.container {width:60rem;}
+.container>div {float:left;width:50%;padding:0 0.75rem;}
+
+.section h2 {font-size:4rem;font-weight:900;}
+.section p {font-size:0.7rem;margin:1rem 0;}
+
+.intro h2 {font-size:10rem;font-weight:900;}
+.intro h2 span {display:block;color:#666;}
+.intro p {font-size:0.7rem;margin:1rem 0;}
+
+
+.section .mockup {height:20rem;background:url(img/mockup.png) no-repeat center top/contain;padding:1rem 8rem 7rem 8rem}
+.section[class*="pf"] .container {width:70rem;}
+.section[class*="pf"] .txt {width:40%;padding:2rem 1rem;line-height:1.5}
+.section[class*="pf"] .content {width:60%;}
+
+.section .mockup figure {height:17rem;border-radius:0.5rem;overflow: hidden;}
+.section .mockup figure img {width:100%;position:relative;top:0;transition:2s;}
+.section .mockup figure:hover img {top:-32rem;}
+
+
+
+
+
+
+

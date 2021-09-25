@@ -1,0 +1,52 @@
+html {font-size:20px;}
+body {font-size:0.8rem;font-weight:300;}
+header {position:fixed;top:2rem;left:2rem;width:calc(100% - 4rem);z-index:999;}
+header i {position:absolute;top:0;right:0;}
+nav {position:fixed;top:50%;left:2rem;transform:translateY(-50%);}
+nav li {position:relative;}
+nav li a {display:block;text-indent:-999px;width:3rem;line-height:1rem;}
+nav li:after {content:"";display:block;width:1rem;height:0.1rem;background:#333;position:absolute;top:50%;left:0;transform:translateY(-50%);transition:0.5s;z-index:-1;}
+nav li.on:after {width:2rem;}
+footer {position:fixed;bottom:2rem;left:2rem;width:100%;z-index:999;}
+
+.content {height:100vh;background-image:url(/img/bg02.png);display:table;width:100%;position:relative;z-index:9;}
+
+.content:nth-child(even) {background-color:#fff}
+
+.content h2 {font-size:2rem;font-weight:700;text-align:center;}
+
+.content .overTxt {width:20rem;height:10rem;margin:0 auto;overflow-y:scroll;}
+
+.container {display:table-cell;width:100%;vertical-align:middle;}
+
+.prx01 {
+    position:absolute;
+	height: 100vh;
+    width:100%;
+	background: transparent;
+    left:0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

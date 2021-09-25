@@ -1,0 +1,64 @@
+html {font-size:20px;}
+body {font-size:0.8rem;font-weight:300;}
+header {position:fixed;top:2rem;left:2rem;width:calc(100% - 4rem);z-index:999;}
+
+header.oo {color:#fff;}
+
+header i {position:absolute;top:0;right:0;}
+nav {position:fixed;top:50%;left:2rem;transform:translateY(-50%);}
+nav li {position:relative;}
+nav li a {display:block;text-indent:-999px;width:3rem;line-height:1rem;}
+nav li:after {content:"";display:block;width:1rem;height:0.1rem;background:#333;position:absolute;top:50%;left:0;transform:translateY(-50%);transition:0.5s;z-index:-1;}
+nav li.on:after {width:2rem;}
+nav li.oo:after {background:#fff;}
+
+
+footer {position:fixed;bottom:2rem;left:2rem;width:100%;z-index:999;}
+footer.oo {color:#fff;}
+
+
+
+.section {background-image:url(img/bg02.png)}
+/* .section h2 {opacity:0;transform:translateY(300px);}
+.section.on h2 {opacity:1;transform:translateY(0);transition:2s;} */
+.section.oo {color:#fff;}
+
+.section .container>* {float:left;width:50%;padding:2rem;}
+.section figure {float:right;width:20rem;height:20rem;overflow:hidden;border-radius:0;transform:scale(0);}
+.section.on figure {transform:scale(1);border-radius:50%;transition:0.3s 1.9s;}
+.section img {width:130%;}
+
+.section .img {position:relative;}
+.section .img:before {content:"";display:block;width:20rem;height:20rem;border-radius:50%;background:#f00;opacity:0.5;position:absolute;top:0;right:0;transform:scale(0);}
+.section.on .img:before {transform:scale(1);transition:0.3s 1.3s;}
+
+.section .img:after {content:"";display:block;width:3rem;height:3rem;border-radius:50%;background:rgba(236, 203, 54, 0.5) url(img/bg01.png);position:absolute;bottom:0;left:2rem;z-index:222;transform:scale(0);}
+.section.on .img:after {transform:scale(1);transition:0.3s 1.6s;}
+
+
+
+.section .txt h2 {font-size:2.7rem;font-weight:700;line-height:2;transform:translateY(3rem);opacity:0;}
+.section.on .txt h2 {font-size:2.7rem;font-weight:700;line-height:2;transform:translateY(0);opacity:1;transition:0.5s 0.3s;}
+.section .txt p {font-size:0.7rem;font-weight:300;line-height:1.4;margin-bottom:2rem;transform:translateY(3rem);opacity:0;}
+.section.on .txt p {font-size:0.7rem;font-weight:300;line-height:1.4;margin-bottom:2rem;transform:translateY(0);opacity:1;transition:0.5s 0.6s;}
+.section .txt strong {display:block;font-size:1rem;font-weight:300;line-height:1.4;transform:translateY(3rem);opacity:0;}
+.section.on .txt strong {font-size:1rem;font-weight:300;line-height:1.4;transform:translateY(0);opacity:1;transition:0.5s 0.9s;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
