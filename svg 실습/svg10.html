@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>svg애니메이션</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <style>
+        body {overflow-x:hidden;}
+        .gnb {
+        filter:url('#bbq');position:relative;
+        }
+        .gnb .bar {position:absolute; top:0;left:0;width:100%;height:10px;background:#f7aa19;}
+        .gnb .gnb_i{position:absolute;top:-20px;right:100px;width:60px;height:60px;line-height:60px;line-height:60px;text-align:center;color:white;font-size:14px;border-radius:50%;transition:1s;background:#f7aa19;cursor:pointer;}
+        .gnb .gnb_d{position:absolute;top:100px;right:100px;width:60px;height:60px;line-height:60px;line-height:60px;text-align:center;color:white;font-size:14px;border-radius:50%;background:#f7aa19;cursor:pointer;}
+        .gnb.on .gnb_i {top:160px;}
+        .gnb.on .gnb_d {transform:scale(1.5)}
+        svg {width:0;height:0;}
+
+    </style>
+</head>
+<body>
+<header class="gnb">
+    <div class="bar"></div>
+    <div class="gnb_i">
+        menu
+    </div>
+    <div class="gnb_d">
+        me
+    </div>
+</header>
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <defs>
+    <filter id="bbq">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+      <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -7" result="bbq" />
+      <feBlend in="SourceGraphic" in="bbq" operator="atop"/>
+  </filter>
+  </defs>
+</svg>
+<script>
+$(function(){
+    $(".gnb_d").draggable();
+    $(".gnb_i").draggable({
+         axis: "x",
+    });
+    var z=true;
+    $(".gnb_i , .gnb_d").on("click",function(){
+        //각각의 li에 다른 위치값주기
+        //e.preventDefault();
+        
+        if(z){
+            $(".gnb").addClass("on");   
+            $(".gnb_i").css({top:160});
+            z=false;
+        }else{
+           $(".gnb").removeClass("on"); 
+           $(".gnb_i").css({top:-20});
+            z=true;
+        }
+    });
+    
+});
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

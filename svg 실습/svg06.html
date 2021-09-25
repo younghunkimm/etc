@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>svg애니메이션</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <style>
+        .gnb{
+        filter:url('#bbq');
+        position:absolute; top:0;left:50%;transform:translate(-50%);width:1200px;height:500px;}
+        .gnb:after {content:"";display:block;width:100%;height:20px;background:crimson;position:absolute;bottom:-30px;left:0;}
+        .gnb_li{position:absolute;top:20px;left:0;width:60px;height:60px;line-height:60px;text-align:center;color:white;z-index:1;}
+        .gnb_li:before {content:"";display:block;position:absolute;width:60px;height:60px;background:crimson;border-radius:60px;top:0;left:0;}
+        .gnb_li>a {display:block;position:absolute;width:60px;height:60px;line-height:60px;text-align:center;color:white;top:0;left:0;}
+        svg {width:0;height:0;}
+    </style>
+</head>
+<body>
+ <ul class="gnb">
+    <li class="gnb_li s1">
+        <a href="#">01</a>
+    </li>
+    <li class="gnb_li s2">
+        <a href="#">02</a>
+    </li>
+    <li class="gnb_li s3">
+        <a href="#">03</a>
+    </li>
+    <li class="gnb_li s4">
+        <a href="#">04</a>
+    </li>
+    <li class="gnb_li s5">
+        <a href="#" class="gnb_btn">05</a>
+    </li>
+</ul>
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <defs>
+    <filter id="bbq">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+      <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -8" result="bbq" />
+      <feBlend in="SourceGraphic" in="bbq" operator="atop"/>
+  </filter>
+  </defs>
+</svg>
+<script>
+$(function(){
+    function mnm(){
+        $(".gnb_li").each(function(index){
+            $(".gnb_li").eq(index).css({left:(index+1)*100+"px"});
+                        $(".gnb_li").eq(index).delay(index*500).animate({top:470}, 1000, "easeOutBounce", function(){
+                $(".gnb_li").eq(index).css({transform:"rotate(720deg)",transition:"1s "+ (index+4) + "s",left:50+"%"})
+            });
+            }
+        );
+    }
+    mnm();
+    function men(){
+         $(".gnb_li").each(function(index){
+            $(".gnb_li").eq(index).css({transition:"1s "+ index + "s",top:(index+1)*100+"px"});
+         });
+        $(".gnb_btn").text("menu");
+        $(".gnb_btn").addClass("text");
+        $(".text").on("click", function(){
+            $(this).addClass("menu");
+            $(".gnb_li").css({top:100+"px"});
+            $(".menu").on("click", men);
+        });
+           
+    }
+    $(".gnb_btn").on("click", men);
+
+});
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

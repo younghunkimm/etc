@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>svg애니메이션</title>
+    <style>
+        body {background:#333;}
+        .hum {margin:0 auto;width:400px;height:400px;}
+    </style>
+</head>
+<body>
+<div class="hum">
+<svg version="1.1" id="hihi" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="400px" height="400px" viewBox="0 0 400 400" enable-background="new 0 0 400 400" xml:space="preserve">
+  <polygon points="161.263,119.999 174.859,119.999 174.859,185.568 174.859,251.139 161.263,251.139 161.263,185.568" id="shape" fill="#ff0">
+     <animate begin="hihi.mouseenter" attributeName="points" dur="1s" fill="freeze"
+              to="156.877,119.999 170.474,119.999 143.28,185.568 170.474,251.139 156.877,251.139 130.561,185.568"/>
+    <animate begin="hihi.mouseleave" attributeName="points" dur="1s" fill="freeze"
+              to="161.263,119.999 174.859,119.999 174.859,185.568 174.859,251.139 161.263,251.139 161.263,185.568"/>
+  </polygon>
+</svg>
+</div>
+</body>
+</html>

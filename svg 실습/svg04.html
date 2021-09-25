@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>svg애니메이션</title>
+    <style>
+        body {background:#333;}
+        .hum {margin:0 auto;width:400px;height:400px;}
+        #hihi path{animation:ddd 2s both}
+        @keyframes ddd{
+            0%{d:path("M50,205c0,0-19.7,89.316,76,36.34c112-62-14.396,10.66-12.396,27.66S225.5,287,119,289	S46.551,216.329,50,205z");opacity:0;}
+            100%{d:path("M75,200.5c0,0,29.3-14.523,125-67.5c112-62,139,50,141,67s-34,86-140.5,88S71.551,211.829,75,200.5z");fill:#f00;opacity:1;}
+        }
+    </style>
+</head>
+<body>
+<div class="hum">
+<svg version="1.1" id="hihi" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="400px" height="400px" viewBox="0 0 400 400" enable-background="new 0 0 400 400" xml:space="preserve">
+<path fill="#EBD065" d="M50,205c0,0-19.7,89.316,76,36.34c112-62-14.396,10.66-12.396,27.66S225.5,287,119,289	S46.551,216.329,50,205z"/>
+<circle fill="#EBD065" cx="281.93" cy="169.954" r="23.764"/>
+</svg>
+</div>
+</body>
+</html>

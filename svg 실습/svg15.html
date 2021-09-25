@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>svg애니메이션</title>
+    <style>
+        body {background:#333;}
+        .hum {margin:0 auto;width:400px;height:400px;}
+    </style>
+</head>
+<body>
+<div class="hum">
+<svg version="1.1" id="hihi" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="400px" height="400px" viewBox="0 0 400 400" enable-background="new 0 0 400 400" xml:space="preserve">
+<path fill="#F4EF4E" d="M284.51,191.406c0,45.72-40.02,82.783-89.387,82.783s-89.387-37.063-89.387-82.783
+	s41.51-38.443,89.387-82.783C238.562,68.394,284.51,145.687,284.51,191.406z">
+     <animate begin="hihi.mouseenter" attributeName="d" dur="1s" fill="freeze"
+              to="M284.51,191.406c0,45.72-40.02,82.783-89.387,82.783s-89.387-37.063-89.387-82.783
+	s23.585-132.312,89.387-82.783C242.426,144.228,284.51,145.687,284.51,191.406z"/>
+    <animate begin="hihi.mouseleave" attributeName="d" dur="1s" fill="freeze"
+              to="M284.51,191.406c0,45.72-40.02,82.783-89.387,82.783s-89.387-37.063-89.387-82.783
+	s41.51-38.443,89.387-82.783C238.562,68.394,284.51,145.687,284.51,191.406z"/>
+    </path>
+</svg>
+</div>
+</body>
+</html>

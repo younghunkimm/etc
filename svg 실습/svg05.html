@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>svg애니메이션</title>
+    <style>
+        .circles{
+        filter:url('#bbq');
+        position:absolute; top:0; left:50%;transform:translateX(-50%);width:1200px;height:400px;}
+
+        .circle{position:absolute;left:50%;transform:translateX(-50%);background:crimson;top:120px;width:100px;height:100px;line-height:100px;text-align:center;color:white;font-size:40px;border-radius:30px;transition:2s;}
+        .circle:before {content:"";display:block;position:absolute;width:100px;height:100px;line-height:100px;text-align:center;color:white;font-size:40px;border-radius:30px;background:crimson;top:0;left:0;filter:blur(1px);}
+        .circle>div {position:relative;}
+        .circles:hover .s2{transform:translateX(calc(-50% - 200px));} 
+        .circles:hover .s3{transform:translateX(calc(-50% + 200px));} 
+        svg {width:0;height:0;}
+    </style>
+</head>
+<body>
+
+ <div class="circles">
+  <div class="circle">
+    <div>창</div>
+  </div>
+  <div class="circle s2"><div>이</div></div>
+  <div class="circle s3"><div>훈</div></div>
+</div>
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <defs>
+    <filter id="bbq">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+      <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -5" result="bbq" />
+      <feBlend in="SourceGraphic" in="bbq" />
+  </filter>
+  </defs>
+</svg>
+</body>
+</html>
