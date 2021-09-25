@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>float</title>
+    <style>
+        * {box-sizing:border-box;margin:0;}
+        section {padding:100px 0;}
+        section>div {width:1200px;margin:0 auto;overflow:hidden;}
+        section figure {float:left;width:25%;padding:15px;}
+        section figure div {background:#f00;height:270px;}
+        section figure:nth-child(1) {width:50%;}
+        section figure:nth-child(1) div {height:570px;}
+    </style>
+</head>
+<body>
+<section>
+    <div>
+        <figure>
+            <div>01</div>
+        </figure>
+        <figure>
+            <div>02</div>
+        </figure>
+        <figure>
+            <div>03</div>
+        </figure>
+        <figure>
+            <div>04</div>
+        </figure>
+        <figure>
+            <div>05</div>
+        </figure>
+    </div>
+</section>
+</body>
+</html>

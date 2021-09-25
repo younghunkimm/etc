@@ -1,0 +1,62 @@
+﻿<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>바로가기02</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+body {font-family: 'Noto Sans KR', sans-serif;}
+* {margin:0;padding:0;box-sizing:border-box;color:inherit;font-size:inherit;font-weight:inherit;}
+ul {list-style:none;}
+a {text-decoration:none;}
+
+
+
+
+</style>
+</head>
+<body>
+
+<form id="link3">
+<select>
+	<option value="http://naver.com">네이버</option>
+	<option value="http://daum.net">다음</option>
+</select>
+<button type="submit">바로가기</button>
+</form>
+
+
+
+<form id="link4">
+<select>
+	<option value="">바로가기</option>
+	<option value="http://naver.com">네이버</option>
+	<option value="http://daum.net">다음</option>
+</select>
+</form>
+
+<script src="http://code.jquery.com/jquery-1.12.4.js"></script>
+<script>
+$(function(){
+
+$("#link3").on("submit", tLink);
+function tLink(){
+	var tlink=$("#link3 select").val();
+	window.open(tlink);
+	return false;
+}
+
+
+$("#link4 select").on("change", t2Link);
+function t2Link(){
+ if($("#link4 select").val() !=""){
+	var tlink2=$("#link4 select").val();
+	window.open(tlink2);
+}
+}
+
+});
+</script>
+</body>
+</html>

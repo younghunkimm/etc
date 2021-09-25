@@ -1,0 +1,127 @@
+﻿<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>다단메뉴반응형</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+body {font-family: 'Noto Sans KR', sans-serif;}
+* {margin:0;padding:0;box-sizing:border-box;color:inherit;font-size:inherit;font-weight:inherit;}
+ul {list-style:none;}
+a {text-decoration:none;}
+
+h1 {text-align:center;line-height:100px;}
+nav {border-top:1px solid #333;border-bottom:1px solid #333;text-align:center;}
+nav>ul {width:1200px;margin:0 auto;}
+nav>ul>li {display:inline-block;position:relative;}
+nav>ul>li>a {line-height:40px;padding:0 30px;}
+nav>ul ul {position:absolute;top:41px;left:0;width:100%;height:0;background:#f2f2f2;overflow:hidden;transition:0.5s;}
+nav:hover>ul ul {height:150px;}
+
+.mopen {display:none;position:fixed;top:30px;right:30px;width:30px;height:30px;}
+.mopen span {position:absolute;width:100%;height:1px;background:#333;transition:0.3s;}
+.mopen span:nth-child(1) {top:0;}
+.mopen span:nth-child(2) {top:10px;}
+.mopen span:nth-child(3) {top:10px;}
+.mopen span:nth-child(4) {top:20px;}
+
+
+.mopen.on span:nth-child(1) {display:none;}
+.mopen.on span:nth-child(2) {transform:rotate(45deg)}
+.mopen.on span:nth-child(3) {transform:rotate(-45deg)}
+.mopen.on span:nth-child(4) {display:none;}
+
+@media screen and (max-width:768px) {
+
+h1 {text-align:center;line-height:100px;}
+nav {position:absolute;top:0;left:-100%;border-top:none;border-bottom:none;border-right:1px solid #333;width:calc(100% - 100px);height:100vh;background:#f2f2f2;transition:0.3s;}
+nav>ul {width:100%;margin:0 auto;}
+nav>ul>li {display:block;position:relative;border-bottom:1px solid #ddd;}
+nav>ul>li>a {line-height:40px;padding:0 30px;}
+nav>ul ul {position:static;top:41px;left:0;width:100%;height:0;background:#f2f2f2;overflow:hidden;transition:0.5s;}
+nav:hover>ul ul {height:0;}
+nav>ul ul.on {height:150px;}
+nav.on {left:0;}
+.mopen {display:block;}
+
+}
+
+
+
+</style>
+</head>
+<body>
+<h1>다단메뉴반응형</h1>
+<nav>
+<ul>
+	<li><a href="#">BMENU01</a>
+	     <ul>
+		<li><a href="#">smenu11</a></li>
+		<li><a href="#">smenu11</a></li>
+		<li><a href="#">smenu11</a></li>
+		<li><a href="#">smenu11</a></li>
+	     </ul>
+	</li>
+	<li><a href="#">BMENU02</a>
+	     <ul>
+		<li><a href="#">smenu21</a></li>
+		<li><a href="#">smenu21</a></li>
+	     </ul>
+	</li>
+	<li><a href="#">BMENU03</a>
+	     <ul>
+		<li><a href="#">smenu31</a></li>
+		<li><a href="#">smenu31</a></li>
+		<li><a href="#">smenu31</a></li>
+		<li><a href="#">smenu31</a></li>
+		<li><a href="#">smenu31</a></li>
+	     </ul>
+	</li>
+	<li><a href="#">BMENU04</a>
+	     <ul>
+		<li><a href="#">smenu41</a></li>
+		<li><a href="#">smenu41</a></li>
+		<li><a href="#">smenu41</a></li>
+	     </ul>
+	</li>
+</ul>
+</nav>
+<div class="mopen">
+	<span></span>
+	<span></span>
+	<span></span>
+	<span></span>
+</div>
+
+
+<script src="http://code.jquery.com/jquery-1.12.4.js"></script>
+<script>
+$(function(){
+
+$(".mopen").on("click", menuOpen);
+function menuOpen(){
+
+	$(this).toggleClass("on");
+	$("nav").toggleClass("on");
+}
+
+
+$("nav>ul>li>a").on("click", ulOpen);
+
+function ulOpen(){
+
+	if($("nav").hasClass("on")){
+		$(this).next().toggleClass("on");
+		$(this).parent().siblings().find("ul").removeClass("on");	
+	}
+
+}
+
+
+
+
+});
+</script>
+</body>
+</html>

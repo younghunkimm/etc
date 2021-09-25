@@ -1,0 +1,68 @@
+﻿<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>this02</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+body {font-family: 'Noto Sans KR', sans-serif;}
+* {margin:0;padding:0;box-sizing:border-box;color:inherit;font-size:inherit;font-weight:inherit;}
+ul {list-style:none;}
+a {text-decoration:none;}
+
+</style>
+</head>
+<body>
+
+	     <ul class="this01">
+		<li><a href="#">smenu11</a></li>
+		<li><a href="#">smenu11</a></li>
+		<li><a href="#">smenu11</a></li>
+		<li><a href="#">smenu11</a></li>
+	     </ul>
+
+	     <ul class="this02">
+		<li><a href="#">smenu21</a></li>
+		<li><a href="#">smenu21</a></li>
+		<li><a href="#">smenu21</a></li>
+		<li><a href="#">smenu21</a></li>
+	     </ul>
+
+
+<script src="http://code.jquery.com/jquery-1.12.4.js"></script>
+<script>
+$(function(){
+
+//this01 
+$(".this01 li").on("click", function(){
+	$(this).css({fontSize:20});
+});
+
+//this02 
+$(".this02 li").on("click", function(){
+	$(".this02", $(this)).css({fontSize:20});
+});
+
+
+
+
+});
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

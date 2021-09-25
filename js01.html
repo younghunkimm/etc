@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>모든 것이 객체다.</title>
+</head>
+<body>
+    <div id="눌러줘">
+        나를 눌러줘!
+    </div>
+    <script>
+        //객체공부
+        const 이창훈={
+            나이:50,
+            이름:"창훈",
+            별명:"재민이",
+            취미(){
+                console.log("재미난거 하기")
+            }
+        }
+        이창훈.취미();
+        const 누르기=document.querySelector("#눌러줘");
+        누르기.addEventListener("click", function(){console.log(this)})
+        누르기.addEventListener("click", ()=>{console.log(this)})
+        누르기.addEventListener("click", function(){this.innerHTML=이창훈.별명 + (++이창훈.나이)})
+    </script>
+</body>
+</html>
