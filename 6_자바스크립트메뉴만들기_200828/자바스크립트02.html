@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>자바스크립트 엘리먼트 제어</title>
+<style>
+	* {margin:0;padding:0;box-sizing:border-box;}
+	ul {list-style:none;}
+	a {text-decoration:none;color:inherit;}
+	#mopen {display:none;}
+	nav {border-top:1px solid #333;border-bottom:1px solid #333;}
+	nav>ul {width:1200px;margin:0 auto;}
+	nav>ul:after {content:"";display:block;clear:both;}
+	nav>ul>li {float:left;width:20%;position:relative;}
+	nav>ul>li a {display:block;text-align:center;line-height:40px;}
+	nav>ul>li ul {height:0;overflow:hidden;position:absolute;top:40px;left:0;background:#ff0;width:100%;transition:.5s;}
+	nav>ul:hover>li ul {height:160px;}
+
+@media screen and (max-width:738px){
+	#mopen {display:block;text-align:right;}
+	nav {position:fixed;top:0;left:-100%;width:calc(100% - 80px);height:100vh;background:#fff;border-right:1px solid #333;border-bottom:none;border-top:none;transition:.5s;}
+	nav.on {left:0;}
+	nav>ul {width:100%;margin:0 auto;}
+	nav>ul:after {content:"";display:block;clear:both;}
+	nav>ul>li {float:none;width:100%;position:relative;}
+	nav>ul>li a {display:block;text-align:center;line-height:40px;}
+	nav>ul>li ul {height:0;overflow:hidden;position:static;top:40px;left:0;background:#ff0;width:100%;transition:.5s;}
+	nav>ul:hover>li ul {height:0;}
+	nav>ul>li ul.on {height:160px;}
+}
+
+</style>
+</head>
+<body>
+<header>logo <span id="mopen">모바일</span></header>
+<nav>
+<ul>
+	<li><a href="#">menu01</a>
+		<ul class="sub_menu">
+			<li><a href="#">ssmenu01</a></li>
+			<li><a href="#">ssmenu02</a></li>
+			<li><a href="#">ssmenu01</a></li>
+			<li><a href="#">ssmenu01</a></li>
+		</ul>
+	</li>
+	<li><a href="#">menu01</a>
+		<ul class="sub_menu">
+			<li><a href="#">ssmenu01</a></li>
+			<li><a href="#">ssmenu02</a></li>
+			<li><a href="#">ssmenu01</a></li>
+			<li><a href="#">ssmenu01</a></li>
+		</ul>
+	</li>
+	<li><a href="#">menu01</a>
+		<ul class="sub_menu">
+			<li><a href="#">ssmenu01</a></li>
+			<li><a href="#">ssmenu02</a></li>
+			<li><a href="#">ssmenu01</a></li>
+			<li><a href="#">ssmenu01</a></li>
+		</ul>
+	</li>
+	<li><a href="#">menu01</a>
+		<ul class="sub_menu">
+			<li><a href="#">ssmenu01</a></li>
+			<li><a href="#">ssmenu02</a></li>
+			<li><a href="#">ssmenu01</a></li>
+			<li><a href="#">ssmenu01</a></li>
+		</ul>
+	</li>
+	<li><a href="#">menu01</a>
+		<ul class="sub_menu">
+			<li><a href="#">ssmenu01</a></li>
+			<li><a href="#">ssmenu02</a></li>
+			<li><a href="#">ssmenu01</a></li>
+			<li><a href="#">ssmenu01</a></li>
+		</ul>
+	</li>
+</ul>
+</nav>
+<footer>
+	ECMA6로 짜보는 모바일 메뉴 ... 나는 마이 아프다.
+</footer>
+<script>
+
+//모바일토글메뉴
+const menu=document.querySelectorAll("nav>ul>li");
+const smenu=document.querySelectorAll(".sub_menu");
+const gnb=(i)=>
+	menu[i].addEventListener("click" , () => smenu[i].classList.toggle("on")
+);
+
+for(i=0;i<menu.length;i++){
+	gnb(i);
+}
+
+
+//모바일에서 메뉴 숨기기 보이기
+const mopen=document.querySelector("#mopen");
+const nav=document.querySelector("nav");
+mopen.addEventListener("click", () => nav.classList.toggle("on"))
+
+
+
+
+</script>
+
+
+</body>
+</html>
